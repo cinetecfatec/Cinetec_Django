@@ -1,0 +1,250 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #8B0000;
+	font-size: 1rem;
+	/* font-weight: 400; */
+	color: #DCDCDC;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 2rem;
+	width: 100%;
+	height: 6rem;
+	background-color: black;
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	z-index: 100;
+}
+
+#att {
+	color: #bd0808;
+}
+
+.headerMenu {
+	font-family: Arial, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+	font-size: 1.5rem;
+	transition: 0.2s;
+
+}
+
+.logoHeader img {
+	width: 130px;
+	height: 6rem;
+}
+
+.headerMenu a {
+	text-decoration: none;
+	color: #DCDCDC;
+	transition: 0.2s;
+	cursor: pointer;
+	margin-left: 2em;
+	font-size: 25px;
+}
+
+.headerLogin {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+	transition: 0.2s;
+	font-size: 18px;
+}
+
+.headerLogin a {
+	text-decoration: none;
+	cursor: pointer;
+	color: #DCDCDC;
+	transition: 0.2s;
+}
+
+.headerLogin a:hover {
+	color: white;
+}
+
+.headerLogin a:hover {
+	cursor: pointer;
+	color: white;
+}
+
+.headerMenu a:hover {
+	color: white;
+}
+
+.headercel {
+	display: none;
+}
+
+.sidebar {
+	display: none;
+
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+	gap: 3rem;
+	padding: 2rem 0;
+
+
+	width: 100%;
+}
+
+.filmes h1 {
+	font-size: 30px;
+	cursor: default;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #8B0000;
+	-webkit-text-stroke: 1.5px #F0E68C;
+}
+
+.filmes {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin-top: 6rem;
+
+
+}
+
+.filmes2 {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.filmes2 h1 {
+	cursor: default;
+	margin-bottom: 0.4rem;
+	font-size: 30px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #8B0000;
+	-webkit-text-stroke: 1.5px #F0E68C;
+}
+
+.listaDeFilmes {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 1.5rem;
+	height: 285px;
+}
+
+.filme {
+	cursor: pointer;
+
+	max-height: 285px;
+	max-width: 200px;
+
+}
+
+.listaDeFilmes img {
+	transition: .2s;
+	max-width: 100%;
+	border-radius: 10px;
+	border: 3px solid #F0E68C;
+}
+
+.listaDeFilmes a {
+	text-decoration: none;
+}
+
+p {
+	display: none;
+}
+
+.nomeFilme {
+
+	display: flex;
+	font-family: Arial, Helvetica, sans-serif;
+	justify-content: flex-start;
+	padding: 20px;
+	background: linear-gradient(180deg, rgba(146, 17, 17, 0.1) 0%, rgba(146, 17, 17, 0.6) 30%, rgba(146, 17, 17, 1) 100%);
+	height: 100px;
+	width: 100%;
+	max-width: 200px;
+	text-align: center;
+	justify-content: center;
+	border-bottom-left-radius: 9px;
+	border-bottom-right-radius: 9px;
+	transition: .3s;
+
+	opacity: 0;
+	margin-top: -100;
+	position: relative;
+	z-index: 10;
+
+}
+
+
+.nomeFilme strong {
+	color: #DCDCDC;
+	font-weight: 900;
+	font-size: 0.75rem;
+	display: flex;
+	justify-content: center;
+	align-items: end;
+
+
+}
+
+.listaDeFilmes div:hover .nomeFilme {
+	opacity: 1;
+}
+
+
+footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2rem;
+	width: 100%;
+	height: 6rem;
+	background-color: black;
+	bottom: 0px;
+}
+
+footer i {
+	cursor: pointer;
+}
+
+footer h2 {
+	color: #8B0000;
+	font-weight: bolder;
+	font-size: 1.5rem;
+}
+
+.iconesRedesSociais {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+
+
+}
+
+.googlePlayIcone {
+	display: flex;
+	flex-direction: row;
+	align-items: end;
+	justify-content: center;
+	gap: 0.5rem;
+
+}
+

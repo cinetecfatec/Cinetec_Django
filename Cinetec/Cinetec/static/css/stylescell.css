@@ -1,0 +1,186 @@
+@media screen and (max-width: 760px) {
+	.nomeFilme {
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 600px) {
+
+	.listaDeFilmes {
+
+		flex-direction: column;
+		align-items: center;
+		height: 100%;
+		gap: 5em;
+		width: 100%;
+	}
+
+	.filmes {
+		gap: 3em;
+		text-align: center;
+		margin-top: 4em;
+		align-items: center;
+	}
+
+
+	.listaDeFilmes img {
+		max-width: none;
+		width: 100%;
+	}
+
+	.listaDeFilmes a {
+		width: 65vw;
+
+	}
+
+	.filmes2 {
+		align-items: center;
+		gap: 4em;
+
+	}
+
+	p {
+		display: inline;
+		font-size: 28px;
+		cursor: default;
+	}
+
+	.filmes h1 {
+		font-size: 50px;
+		cursor: default;
+	}
+
+	.filme {
+		font-family: Arial, Helvetica, sans-serif;
+		gap: 1em;
+		justify-content: center;
+		display: flex;
+		text-align: center;
+		flex-direction: column;
+		align-items: center;
+		color: #F0E68C;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+		max-height: none;
+	}
+
+	.filmes2 h1 {
+		font-size: 50px;
+		cursor: default;
+		text-align: center;
+	}
+
+	header {
+		height: 4rem;
+		padding-right: none;
+	}
+
+	.headerMenu {
+		display: none;
+	}
+
+	.headerLogin {
+		display: none;
+	}
+
+	.headercel {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1.5em;
+		padding-left: 1.5em;
+
+		font-family: Malgun Gothic Bold;
+		font-size: 28px;
+		cursor: default;
+		width: 100%;
+
+	}
+
+	.headercel a {
+		text-decoration: none;
+		color: #F0E68C;
+	}
+
+	.burguer-container {
+		position: absolute;
+		top: 12px;
+		left: 30px;
+		height: 30px;
+		width: 40px;
+		cursor: pointer;
+		z-index: 999;
+		display: inline-block;
+		align-items: center;
+		justify-content: center;
+	}
+
+
+	.bar1,
+	.bar2,
+	.bar3 {
+		width: 35px;
+		height: 5px;
+		background-color: #fff;
+		margin: 6px 0;
+		transition: 0.4s;
+		border-radius: 20px;
+	}
+
+	.active .bar1 {
+		transform: translate(0, 11px) rotate(-45deg);
+	}
+
+	.active .bar2 {
+		opacity: 0;
+	}
+
+	.active .bar3 {
+		transform: translate(0, -11px) rotate(45deg);
+	}
+
+	.sidebar {
+		background-color: rgb(12, 12, 12, .9);
+		border: solid black;
+		border-left: none;
+		border-bottom: none;
+		position: fixed;
+		width: 70%;
+		height: 100%;
+
+	}
+
+	.sidecont {
+
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		align-items: center;
+		font-size: 1.4em;
+
+	}
+
+	.sidelog {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		align-items: center;
+	}
+
+	.sidebar a {
+		text-decoration: none;
+		color: #F0E68C;
+	}
+
+	.show {
+		
+	
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+}

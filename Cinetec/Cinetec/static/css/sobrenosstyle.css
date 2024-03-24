@@ -1,0 +1,268 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+	
+}
+
+body {
+	background:#8B0000;
+	font-size: 1rem;
+	/* font-weight: 400; */
+	color: #DCDCDC;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 2rem;
+	width: 100%;
+	height: 6rem;
+	background-color: black;
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	z-index: 100;
+	top: 0;
+}
+#att{
+	color: #bd0808;
+}
+
+.headerMenu {
+	font-family: Arial, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+	font-size: 1.5rem;	transition: 0.2s;
+}
+.logoHeader img{
+	width: 130px;
+	height: 6rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+.headerMenu a {
+	text-decoration: none;
+	color: #DCDCDC;
+	transition: 0.2s;
+	cursor: pointer;
+	margin-left: 2em;
+	font-size: 25px;
+}
+
+.headerLogin {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-right: 1.6em;
+	gap: 1rem;
+	transition: 0.2s;
+	font-size: 18px;
+}
+
+.headerLogin a {
+	text-decoration: none;
+	cursor: pointer;
+	color: #DCDCDC;
+	transition: 0.2s;
+}
+
+.headerLogin a:hover {
+	color: white;
+}
+.headerLogin a:hover{
+	cursor: pointer;
+	color: white;
+}
+ .headerMenu a:hover{
+	color: white;
+}
+.headercel{
+	display: none;
+}
+.sidebar{
+	display: none;
+}
+main{
+    margin-top: 6rem;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	flex-direction: column;
+    height: 100%;
+	width: 100%;
+	color: #F0E68C ;
+
+}
+.nomes{
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	line-height: 1.5em;
+	background-color: #440000;
+	border-radius: 20px;
+	border: solid rgba(0, 0, 0, 0.527);
+	padding: 1em;
+	box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.5);
+  
+}
+.nomes ul{
+    list-style: none;
+}
+.historico{
+
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	margin-bottom: 6rem;
+	background-color: #440000;
+	border-radius: 20px;
+	border: solid rgba(0, 0, 0, 0.527);
+	padding: 1em;
+	box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.5);
+}
+.containertudo {
+	margin-top: 6rem;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: left;
+	flex-direction: column;
+	gap: 3em;
+	
+	padding-right: 12%;
+	padding-left: 12%;
+
+}
+.container1{
+    display: flex;
+    justify-content: space-between;
+	width: 100%;
+	
+}
+
+.missao{
+	max-width: 40%;
+	height: fit-content;
+    justify-content: center;
+    align-items: center;
+	background-color: #440000;
+	border-radius: 20px;
+	border: solid rgba(0, 0, 0, 0.527);
+	padding: 1em;
+	box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.5);
+	
+}
+.visao{
+	max-width: 40%;
+    
+    justify-content: center;
+    align-items: center;
+	background-color: #440000;
+	border-radius: 20px;
+	border: solid rgba(0, 0, 0, 0.527);
+	padding: 1em;
+	box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.5);
+  
+}
+
+.imagemcinema1{
+	max-width: 50%;
+	justify-content: center;
+	align-items: center;
+}
+.imagemcinema1 img{
+	width: 100%;
+	border-radius: 20px;
+	border: 2px solid #F0E68C ;
+	box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.5);
+}
+.principios{
+	
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	background-color: #440000;
+	border-radius: 20px;
+	border: solid rgba(0, 0, 0, 0.527);
+	padding: 1em;
+	box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.5);
+}
+.principios ul{
+	list-style: none;
+}
+.valores{
+	
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	background-color: #440000;
+	border-radius: 20px;
+	border: solid rgba(0, 0, 0, 0.527);
+	padding: 1em;
+	box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.5);
+}
+.valores p{
+	text-align: justify;
+  text-justify: inter-word;
+}
+.valores ul{
+	list-style: none;
+}
+h3{
+	margin-top: 1em;
+}
+
+.imagem2 img{
+	width: 100%;
+	border-radius: 20px;
+	border: 2px solid #F0E68C ;
+	box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.5);
+}
+
+footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2rem;
+	width: 100%;
+	height: 6rem;
+	background-color: black;
+	bottom: 0px;
+}
+
+footer i {
+	cursor: pointer;
+}
+
+footer h2 {
+	color: #8B0000;
+	font-weight: bolder;
+	font-size: 1.5rem;
+}
+
+.iconesRedesSociais {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+.googlePlayIcone {
+	display: flex;
+	flex-direction: row;
+	align-items: end;
+	justify-content: center;
+	gap: 0.5rem;
+
+}

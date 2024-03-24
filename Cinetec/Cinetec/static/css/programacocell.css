@@ -1,0 +1,159 @@
+@media screen and (max-width: 600px){
+	header {
+		height: 4rem;
+		padding-right: none;
+	}
+
+	.headerMenu {
+		display: none;
+	}
+
+	.headerLogin {
+		display: none;
+	}
+
+	.headercel {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1.5em;
+		padding-left: 1.5em;
+
+		font-family: Malgun Gothic Bold;
+		font-size: 28px;
+		cursor: default;
+		width: 100%;
+
+	}
+
+	.headercel a {
+		text-decoration: none;
+		color: #F0E68C;
+	}
+
+	.burguer-container {
+		position: absolute;
+		top: 12px;
+		left: 30px;
+		height: 30px;
+		width: 40px;
+		cursor: pointer;
+		z-index: 999;
+		display: inline-block;
+		align-items: center;
+		justify-content: center;
+	}
+
+
+	.bar1,
+	.bar2,
+	.bar3 {
+		width: 35px;
+		height: 5px;
+		background-color: #fff;
+		margin: 6px 0;
+		transition: 0.4s;
+		border-radius: 20px;
+	}
+
+	.active .bar1 {
+		transform: translate(0, 11px) rotate(-45deg);
+	}
+
+	.active .bar2 {
+		opacity: 0;
+	}
+
+	.active .bar3 {
+		transform: translate(0, -11px) rotate(45deg);
+	}
+
+	.sidebar {
+		background-color: rgb(12, 12, 12, .9);
+		border: solid black;
+		border-left: none;
+		border-bottom: none;
+		position: fixed;
+		width: 70%;
+		height: 100%;
+		z-index: 99;
+	}
+
+	.sidecont {
+
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		align-items: center;
+		font-size: 1.4em;
+
+	}
+
+	.sidelog {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		align-items: center;
+	}
+
+	.sidebar a {
+		text-decoration: none;
+		color: #F0E68C;
+	}
+
+	.show {
+		
+	
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.programacaoContainer{
+		width: 90%;
+		justify-content: center;
+		align-items: center;
+	}
+	.containerFilmes{
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		padding-left: 0rem;
+		padding-bottom: 1rem;
+	}
+	.containerBotoes{
+		width: 100%;
+		justify-content: center;
+		
+	}
+	.horarios{
+		align-items: center;
+		width: 100%;
+		
+	}
+	.info{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
+	main{
+		margin-top: 4rem;
+	}
+	.botaoDublado{
+		min-width: 110px;
+		max-width: 110px;
+	}
+	.botaoHorario{
+		min-width: 70px;
+		max-width: 70px;
+	}
+	.headerData{
+		justify-content: center;
+	}
+	footer{
+		margin-top: 2rem;
+	}
+}
