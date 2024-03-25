@@ -15,9 +15,9 @@
             <div class="logoHeader">
                 <img src="{% static 'img/cinetec_logo.png' %}">
             </div>
-            <a href="index.html" id="att">INÍCIO</a>
+            <a href="{% url 'pagina-inicio' %}" id="att">INÍCIO</a>
             <a href="programacao.html">PROGRAMAÇÃO</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="{% url 'pagina-sobre' %}">SOBRE NÓS</a>
         </div>
         <div class="headercel">
             <div class="burguer-container">
@@ -25,20 +25,20 @@
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
-            <a href="index.html">
+            <a href="{% url 'pagina-inicio' %}">
                 <h1>Cinetec</h1>
             </a>
         </div>
         <div class="headerLogin">
-            <a href="login.html">LOGIN</a>
+            <a href="{% url 'pagina-inicio' %}">LOGIN</a>
             <a href="cadastro.html">CADASTRO</a>
         </div>
     </header>
     <div class="sidebar">
         <div class="sidecont">
-            <a href="index.html" id="att">INÍCIO</a>
+            <a href="{% url 'pagina-inicio' %}" id="att">INÍCIO</a>
             <a href="programacao.html">PROGRAMAÇÃO</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="{% url 'pagina-sobre' %}">SOBRE NÓS</a>
         </div>
         <div class="sidelog">
             <a href="login.html">LOGIN</a>
