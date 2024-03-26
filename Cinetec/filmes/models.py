@@ -1,4 +1,5 @@
 from django.db import models
+from embed_video.fields import EmbedVideoField
 
 # Create your models here.
 
@@ -7,7 +8,7 @@ class listaFilmes(models.Model):
    id_filme = models.AutoField(primary_key=True)
    nome_filme = models.CharField(max_length=50)
    foto_cartaz = models.CharField(max_length=50)
-   trailer = models.CharField(max_length=150)
+   trailer = EmbedVideoField()
    genero = models.CharField(max_length=30) 
    distribuidora = models.CharField(max_length=30)
    duracao = models.IntegerField(verbose_name="duração")
@@ -16,5 +17,10 @@ class listaFilmes(models.Model):
    status = models.CharField(max_length=1, choices=Status_model)
    classificacao = models.IntegerField(verbose_name = "classificação")
 
+
+
 def __init__(self):
-        self.pergunta
+      return  self.nome_filme
+
+class Meta:
+      ordering = ['-added']

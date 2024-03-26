@@ -1,0 +1,42 @@
+{% load static %}
+
+<div class="filmes"> 
+    <h1>FILMES EM CARTAZ</h1>
+    <div class="listaDeFilmes">
+        
+        {% for x in filmes %}
+        {% if x.status == 'A' %}            
+
+        <div class="filme">
+        <a href="{% url 'pagina-escolhido' x.id_filme %}">
+        <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}"></a>
+        <div class="nomeFilme">
+        <strong>{{x.nome_filme}}<br>{{x.genero}}</strong>
+        </div>
+        <p>{{x.nome_filme}}<br>{{x.genero}}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<div class="filmes2">
+    <h1>FILMES EM BREVE</h1>
+    <div class="listaDeFilmes">
+
+        {% for x in filmes %}
+        {% if x.status == 'B' %}
+
+        <div class="filme">
+            <a href="{% url 'pagina-escolhido' x.id_filme %}">
+                <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}"></a>
+            <div class="nomeFilme">
+                <strong>{{x.nome_filme}}<br>{{x.genero}}</strong>
+            </div>
+            <p>{{x.nome_filme}}<br>{{x.genero}}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+

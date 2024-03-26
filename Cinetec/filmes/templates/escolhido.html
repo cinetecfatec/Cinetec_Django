@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load embed_video_tags %}
+
+
+{% block titulo %}
+    <link rel=StyleSheet href="{% static 'css/cartazcell.css'%}">
+    <link rel=StyleSheet href="{% static 'css/sinpose.css' %}">
+    <script src="https://kit.fontawesome.com/9bbaee9804.js" crossorigin="anonymous"></script>
+    <title>Filme Escolhido</title>
+{% endblock %}
+
+{% block conteudo %}
+
+<br>
+<br>
+
+    <div class="filme-trailer">
+        <div class="trailer">
+            <h1>TRAILER</h1>
+            {% video object.trailer 'small' %}
+        </div>
+
+        <div class="filme">
+                    <h1 style="text-transform: uppercase;">{{object.nome_filme}}</h1>
+                    <img src="{{object.foto_cartaz}}">
+            <h1><a href="/Cinetec/programacao.php">COMPRE JÁ</a></h1>
+        </div>
+
+    </div>
+
+<div class="conteiner_1"></div>
+    <div class="sesh">        
+                <h1>SINOPSE</h1>
+                {{object.sinopse}}
+                <h1>ELENCO</h1>
+                {{object.elenco}}
+                <h1>DURAÇÃO</h1>
+                {{object.duracao}} Minutos
+                <h1>GENÊRO</h1>
+                {{object.genero}}
+                <h1>DISTRIBUIDORA</h1>
+                {{object.distribuidora}}
+                </br>
+                <div class="class_etaria">
+                    {% if object.classificacao == 10 %}
+                        <img src="{% static 'img/10.png'%}" width ="100rem" height="100rem">
+                    {% elif object.classificacao == 12 %}
+                        <img src="{% static 'img/12.png'%}" width ="100rem" height="100rem">
+                    {% elif object.classificacao == 14 %}
+                        <img src="{% static 'img/14.png'%}" width ="100rem" height="100rem">
+                    {% elif object.classificacao == 16 %}
+                        <img src="{% static 'img/16.png'%}" width ="100rem" height="100rem">
+                    {% elif object.classificacao == 18 %}
+                        <img src="{% static 'img/18.png'%}" width ="100rem" height="100rem">
+                    {% else %}
+                        <img src="{% static 'img/livre.png'%}" width ="100rem" height="100rem">
+                    {% endif %}
+                </div>
+    </div>
+
+</div>
+{% endblock %}

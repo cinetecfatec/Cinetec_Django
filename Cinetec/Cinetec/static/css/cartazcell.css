@@ -1,0 +1,39 @@
+@media screen and (max-width: 600px){
+
+	.show {
+		
+	
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.conteiner_1{
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2em;
+		margin-top: 4rem;
+	}
+	.sesh{
+		max-width: none;
+		width: 90%;
+	}
+	.filme{
+		text-align: center;
+	}
+	.filme h1{
+		max-width: 110%;
+	}
+	.filme img{
+		height: auto;
+		max-height: none;
+		width: 100vw;
+		max-width: 70%;
+	}
+	iframe{
+		height: 150px;
+		width: 100%;
+	}
+}
