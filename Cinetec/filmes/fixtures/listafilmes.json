@@ -1,0 +1,162 @@
+[
+{
+  "model": "filmes.listafilmes",
+  "pk": 1,
+  "fields": {
+    "nome_filme": "Mussum, o filmis",
+    "foto_cartaz": "https://i.imgur.com/e8m9ygo.jpg",
+    "trailer": "https://www.youtube.com/watch?v=I2-2m9z8fiw",
+    "genero": "Comedia",
+    "distribuidora": "Downtown Filmes",
+    "duracao": 120,
+    "elenco": "Neusa Borges, Vanderlei Bernardino, Gero Camilo",
+    "sinopse": "MUSSUM, O FILMIS narra a trajet├│ria de vida de Ant├┤nio Carlos Bernardes Gomes, indo muito al├®m do Mussum que o grande p├║blico conhece: a inf├óncia pobre, a carreira militar, a rela├º├úo com a Mangueira, o sucesso com os Originais do Samba, al├®m de bastidores de Os Trapalh├Áes,",
+    "status": "A",
+    "classificacao": 12
+  }
+},
+{
+  "model": "filmes.listafilmes",
+  "pk": 2,
+  "fields": {
+    "nome_filme": "As Marvels",
+    "foto_cartaz": "https://i.imgur.com/0GEYGol.jpg",
+    "trailer": "https://www.youtube.com/watch?v=YxL9wTkEgSY",
+    "genero": "A├º├úo",
+    "distribuidora": "Walt Disney",
+    "duracao": 105,
+    "elenco": "Brie Larson, Iman Vellani, Teyonah Parris",
+    "sinopse": "Quando suas obriga├º├Áes a levam a uma fenda espacial an├┤mala ligada a um revolucion├írio Kree, os poderes de Carol Danvers, a Capit├ú Marvel, se entrela├ºam aos de Kamala Khan, a Ms. Marvel, e aos da sobrinha de Carol, astronauta da S.A.B.E.R., Capit├ú Monica Rambeau. Juntas, esse trio improv├ível deve ser unir para salvar o universo como",
+    "status": "A",
+    "classificacao": 12
+  }
+},
+{
+  "model": "filmes.listafilmes",
+  "pk": 3,
+  "fields": {
+    "nome_filme": "Five Nights at Freddys",
+    "foto_cartaz": "https://i.imgur.com/ZDwPBj3.jpg",
+    "trailer": "https://www.youtube.com/watch?v=akJMKqpfUww",
+    "genero": "Terror",
+    "distribuidora": "Universal",
+    "duracao": 105,
+    "elenco": "Josh Hutcherson, Elizabeth Lail, Piper Rubio, Kat Conner Sterling, Mary Stuart Masterson, Matthew Lillard",
+    "sinopse": "Five Nights At Freddys - O Pesadelo Sem Fim ├® a primeira adapta├º├úo cinematogr├ífica da famosa franquia hom├┤nima de jogos lan├ºada em 2014. Na hist├│ria, que se passa em um restaurante familiar tipicamente americano chamado Freddy Fazbears Pizza, acompanhamos Mike Schmidt (Josh Hutcherson), um jovem contratado para trabalhar como o vigia noturno do local. Sob o comando do gerente Steve Raglan (Matthew Lillard), o lugar ├® muito famoso por seus caracter├¡sticos rob├┤s animados que fazem a festa das crian├ºas durante o dia. Por├®m, quando chega a noite, um segredo obscuro e mortal surge: os bonecos animatr├┤nicos se transformam em assassinos psicopatas.",
+    "status": "A",
+    "classificacao": 14
+  }
+},
+{
+  "model": "filmes.listafilmes",
+  "pk": 4,
+  "fields": {
+    "nome_filme": "Assassinos da Lua das Flores",
+    "foto_cartaz": "https://i.imgur.com/JRkR6aF.jpg",
+    "trailer": "https://www.youtube.com/watch?v=T22WRjooZn4",
+    "genero": "Drama",
+    "distribuidora": "Paramount",
+    "duracao": 205,
+    "elenco": "Leonardo DiCaprio, Robert De Niro, Lily Gladstone, Jesse Plemons",
+    "sinopse": "1920. Misteriosos assassinatos acontecem na tribo ind├¡gena de Osage, em Oklahoma, uma terra rica em petr├│leo. O caso foi investigado pelo FBI, a ag├¬ncia que tinha acabado de ser criada na ├®poca. Baseado no livro best-seller de David Grann",
+    "status": "A",
+    "classificacao": 14
+  }
+},
+{
+  "model": "filmes.listafilmes",
+  "pk": 5,
+  "fields": {
+    "nome_filme": "Trolls: Juntos Novamente",
+    "foto_cartaz": "https://i.imgur.com/4fzeSe1.jpg",
+    "trailer": "https://www.youtube.com/watch?v=E1pkNoojLus",
+    "genero": "Anima├º├úo",
+    "distribuidora": "Universal",
+    "duracao": 90,
+    "elenco": "Anna Kendrick, Justin Timberlake, Troye Sivan, Eric Andre, Daveed Diggs, Aino Jawo, Amy Schumer, Anderson .Paak, Andrew Rannells, Camila Cabello, Caroline Hjelt, Christopher Mintz-Plasse, Kenan Thomps",
+    "sinopse": "A troll Poppy, junto com seus amigos Branch, Biggie, Tiny Diamond, Cooper, Satin e Chenille embarcam mais uma vez em uma aventura onde divers├úo, desafios e muitos novos e loucos amigos os acompanhar├úo nesta incr├¡vel jornada.",
+    "status": "A",
+    "classificacao": 0
+  }
+},
+{
+  "model": "filmes.listafilmes",
+  "pk": 6,
+  "fields": {
+    "nome_filme": "Aquaman 2: O Reino Perdido",
+    "foto_cartaz": "https://i.imgur.com/yMMptHD.jpg",
+    "trailer": "https://www.youtube.com/watch?v=rPBjB65NV_c",
+    "genero": "A├º├úo",
+    "distribuidora": "Warner Bros",
+    "duracao": 115,
+    "elenco": "Jason Momoa, Amber Heard, Patrick Wilson, Dolph Lundgren, Nicole Kidman, Randall Park, Temuera Morrison, Yahya Abdul-Mateen II",
+    "sinopse": "Quando um poder ancestral ├® liberado, o Aquaman deve forjar uma alian├ºa inc├┤moda com um aliado improv├ível para proteger Atl├óntida e o resto do mundo, de uma devasta├º├úo irrevers├¡vel.",
+    "status": "B",
+    "classificacao": 14
+  }
+},
+{
+  "model": "filmes.listafilmes",
+  "pk": 7,
+  "fields": {
+    "nome_filme": "Wonka",
+    "foto_cartaz": "https://i.imgur.com/4kOPLnn.jpg",
+    "trailer": "https://www.youtube.com/watch?v=-6hA1BxpdRk&t=10s",
+    "genero": "Aventura",
+    "distribuidora": "Warner Bros",
+    "duracao": 116,
+    "elenco": "Timothee Chalamet, Keegan-Michael Key, Sally Hawkins, Rowan Atkinson, Olivia Colman, Hugh Grant",
+    "sinopse": "A hist├│ria se concentrar├í no jovem Willy Wonka e em suas aventuras antes de abrir a f├íbrica de chocolate mais famosa do mundo.",
+    "status": "B",
+    "classificacao": 12
+  }
+},
+{
+  "model": "filmes.listafilmes",
+  "pk": 8,
+  "fields": {
+    "nome_filme": "Kraven - O Ca├ºador",
+    "foto_cartaz": "https://i.imgur.com/m42jZBi.png",
+    "trailer": "https://www.youtube.com/watch?v=GMmb63nsDIc",
+    "genero": "A├º├úo",
+    "distribuidora": "Columbia Tristar",
+    "duracao": 0,
+    "elenco": "Ariana DeBose, Aaron Taylor-Johnson",
+    "sinopse": "Kraven - O Ca├ºador ├® a hist├│ria visceral sobre como e por que um dos vil├Áes mais ic├┤nicos da Marvel surgiu. Vindo de um lar criminoso, ele que sobreviveu a um ataque de le├úo e ganhou uma conex├úo especial com os animais, Sergei Kravinoff, ou Kraven (Aaron Taylor-Johnson), ├® um dos maiores anti-her├│is da Marvel e j├í viveu in├║meros embates com Peter Parker. Neste spin-off, que ├® mais um filme do universo Marvel na Sony, situado antes de sua not├│ria vingan├ºa contra o Homem-Aranha, quando um inimigo entra na lista deste personagem dos mais ic├┤nicos, s├│ h├í uma maneira de sair.",
+    "status": "B",
+    "classificacao": 16
+  }
+},
+{
+  "model": "filmes.listafilmes",
+  "pk": 9,
+  "fields": {
+    "nome_filme": "Feriado Sangrento",
+    "foto_cartaz": "https://i.imgur.com/7QKsvfS.png",
+    "trailer": "https://www.youtube.com/watch?v=WtjfEO11Lqg",
+    "genero": "Terror",
+    "distribuidora": "Columbia Tristar",
+    "duracao": 100,
+    "elenco": "Alyssa Sutherland, Lily Sullivan, Gabrielle Echols, Morgan Davies, Neil Fisher",
+    "sinopse": "Depois que um tumulto numa liquida├º├úo acaba em trag├®dia, um assassino misterioso fantasiado de peregrino aterroriza a cidade de Plymouth em Massachusetts, cidade ber├ºo do feriado americano de A├º├úo de Gra├ºas.",
+    "status": "B",
+    "classificacao": 18
+  }
+},
+{
+  "model": "filmes.listafilmes",
+  "pk": 10,
+  "fields": {
+    "nome_filme": "O Sequestro do Voo 375",
+    "foto_cartaz": "https://i.imgur.com/RBNm77j.png",
+    "trailer": "https://www.youtube.com/watch?v=-WItUHprYsw",
+    "genero": "A├º├úo",
+    "distribuidora": "Walt Disney",
+    "duracao": 100,
+    "elenco": "Danilo Grangheia, Jorge Paz, Roberta Gualda, Juliana Alves, Diego Montez, Adriano Garib, Gabriel Godoy, C├®sar Mello, Wagner Santisteban, Johnnas Oliva, Claudio Jaborandy, Arianne Botelho",
+    "sinopse": "Plano Sarney. Brasil em dificuldades econ├┤micas, como sempre acontece. Sem emprego, Nonato resolve protestar de medida dram├ítica: sequestrar o voo 375, da Vasp, com mais de cem passageiros - e ordena ao comandante Murilo que jogue o avi├úo em cima do Pal├ício do Planalto. Para evitar a trag├®dia, o piloto acaba sendo obrigado a executar manobras que jamais haviam sido tentadas com um avi├úo daquele tamanho.",
+    "status": "B",
+    "classificacao": 12
+  }
+}
+]

@@ -23,4 +23,4 @@ def __init__(self):
       return  self.nome_filme
 
 class Meta:
-      ordering = ['-added']
+      ordering = ['-id_filme']

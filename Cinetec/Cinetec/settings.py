@@ -101,6 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+FIXTURE_DIRS = [ os.path.join(BASE_DIR, 'templates/fixtures')]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
