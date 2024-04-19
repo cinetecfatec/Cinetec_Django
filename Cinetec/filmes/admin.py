@@ -6,7 +6,7 @@ from .models import listaFilmes,Teste
 
 # Descomente esta linha se quiser usar AdminVideoMixin
 class ListaFilmesAdmin(AdminVideoMixin, admin.ModelAdmin):
-    pass
+    list_display = ('id_filme','nome_filme','genero')
 
 admin.site.register(listaFilmes, ListaFilmesAdmin)
 admin.site.register(Teste)
