@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% crispy form %}
 
 {% block titulo %}
 <link rel=StyleSheet href="{% static 'css/novoCadastro.css'%}">
@@ -10,11 +11,12 @@
 {% block conteudo %}
 <br>
 <br>
-<h2>Novo Cadastro</h2>
+<h1>Novo Cadastro</h1>
 <form method="post">
    {% csrf_token %}
-   {{ form|crispy }}
-   <br>
-   <hr>
+   <h2>{{ form|crispy }} </h2>
+      <br>
+      <hr>
+
 </form>
 {% endblock %}

@@ -9,7 +9,7 @@ from .models import NovoCadastro
 # Create your views here.
 
 class cadastroCreateView(CreateView):
-    model = User
+    model = NovoCadastro
     form_class = NovoCadastro
     template_name = "cadastroNovo.html"
     success_url = reverse_lazy('pagina-inicio')

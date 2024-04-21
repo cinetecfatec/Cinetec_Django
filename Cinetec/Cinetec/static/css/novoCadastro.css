@@ -6,3 +6,10 @@ h3 {
 	text-decoration: none;
 	color: #DCDCDC;
 }
+.form-group {
+	background:#8B0000;
+	font-size: 1rem;
+	/* font-weight: 400; */
+	color: #DCDCDC;
+	font-family: Arial, Helvetica, sans-serif;
+}

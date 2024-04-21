@@ -41,14 +41,13 @@ INSTALLED_APPS = [
     'filmes.apps.FilmesConfig',
     'cadastro.apps.CadastroConfig',
     "crispy_forms",
-    "crispy_bootstrap5",
+    "crispy_bootstrap4",
     'embed_video',
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

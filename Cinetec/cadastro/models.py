@@ -18,6 +18,7 @@ class User(AbstractUser):
     )
 
 class NovoCadastro(forms.ModelForm):
+    
     class Meta:
         model = User
         fields = ['username','first_name','last_name','email', 'password']
@@ -33,10 +34,11 @@ class NovoCadastro(forms.ModelForm):
             'username': None,  # Removendo o texto de ajuda do campo password
         }
     
-    def __init__(self, *args, **kwargs):
-        super(NovoCadastro, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.form_class = 'cadastroForm'
-        self.helper.add_input(Submit('submit', 'Criar Cadastro', css_class='btn-primary'))   
-        self.helper.template = 'bootstrap5/layout.html'
+    @property
+    def helper(self):
+        helper = FormHelper()
+        helper.form_method = 'post'
+        helper.form_class = 'cadastroForm'
+        helper.add_input(Submit('submit', 'Criar Cadastro'))   
+        helper.label_class = True
+        return helper
