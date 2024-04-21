@@ -38,5 +38,5 @@ class NovoCadastro(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.form_class = 'cadastroForm'
-        self.helper.add_input(Submit('submit', 'Criar Cadastro', css_class='btn-primary'))   
-        self.helper.template = 'bootstrap5/layout.html'
+        self.helper.add_input(Submit('submit', 'Criar Cadastro', css_class='btn btn-primary'))  
+        
