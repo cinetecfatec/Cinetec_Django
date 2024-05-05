@@ -37,8 +37,8 @@ class NovoCadastro(forms.ModelForm):
     @property
     def helper(self):
         helper = FormHelper()
-        helper.form_method = 'post'
+        helper.form_method = 'POST'
         helper.form_class = 'cadastroForm'
-        helper.add_input(Submit('submit', 'Criar Cadastro'))   
+        helper.add_input(Submit('submit', 'Submit', css_class='btn btn-primary'))
         helper.label_class = True
         return helper

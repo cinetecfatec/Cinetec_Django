@@ -13,10 +13,12 @@
 <br>
 <h1>Novo Cadastro</h1>
 <form method="post">
+   <div class="jumbotron">
    {% csrf_token %}
-   <h2>{{ form|crispy }} </h2>
+   <h3>{{ form|crispy }} </h3>
       <br>
       <hr>
-
+      <button type="submit" class="btn btn-lg btn-primary">Salvar</button>
+   </div>
 </form>
 {% endblock %}
