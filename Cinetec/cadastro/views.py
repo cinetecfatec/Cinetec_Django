@@ -13,3 +13,7 @@ class cadastroCreateView(CreateView):
     form_class = NovoCadastro
     template_name = "cadastroNovo.html"
     success_url = reverse_lazy('pagina-inicio')
+    
+    def form_valid(self, form):
+        # Lógica para salvar o formulário
+        return super().form_valid(form)

@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    <link rel=StyleSheet href="{% static 'css/compra.css'%}">
+    <link rel=StyleSheet href="{% static 'css/compracell.css' %}">
+    <script src="https://kit.fontawesome.com/9bbaee9804.js" crossorigin="anonymous"></script>
+    <title>Escolha de assentos</title>
+{% endblock %}
+
+{% block conteudo %}
+</div>
+<div class="compracont">
+    <div class="cinema_">
+        <div class="legenda">
+            <h5>LEGENDA</h5>
+            <div><img src="icon_cadeiras/assento_disp.png" alt=""><p>assento disponivel</p></div>
+            <div><img src="icon_cadeiras/assento_livre.png" alt=""><p>assento selecionado</p></div>
+            <div><img src="icon_cadeiras/assento_ocup.png" alt=""><p>assento ocupado</p></div>
+        </div>
+        <div class="cinema">
+            <div class="sala" id="cadera"></div>
+            <div class="tela"> TELA </div> 
+        </div>
+    </div>
+    <div class="compra">
+        <button class="btn" id="compra">COMPRAR</button>
+        <div class="preco">
+            <h3>Preço: R$<p id="preco">0</p>,00</h3>
+        </div>
+    </div>
+</div>
+</div>
+{%endblock%}
