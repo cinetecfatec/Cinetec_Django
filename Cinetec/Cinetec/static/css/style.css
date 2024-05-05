@@ -40,9 +40,10 @@ header {
 }
 
 .logoHeader img {
-	width: 130px;
-	height: 6rem;
+    width: 142px;
+    height: 100px;
 }
+
 
 .headerMenu a {
 	text-decoration: none;
@@ -182,12 +183,11 @@ p {
 	border-bottom-left-radius: 9px;
 	border-bottom-right-radius: 9px;
 	transition: .3s;
-
 	opacity: 0;
-	margin-top: -100;
+    margin-top: -103px;
 	position: relative;
 	z-index: 10;
-
+    flex-direction: column;
 }
 
 

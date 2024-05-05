@@ -9,12 +9,13 @@
 
         <div class="filme">
         <a href="{% url 'pagina-escolhido' x.id_filme %}">
-        <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}"></a>
+        <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}">
         <div class="nomeFilme">
-        <strong>{{x.nome_filme}}<br>{{x.genero}}</strong>
+            <strong>{{x.nome_filme}}</strong><strong style="color: #F0E68C">{{x.genero}}</strong>
         </div>
         <p>{{x.nome_filme}}<br>{{x.genero}}</p>
         </div>
+        </a>
         {% endif %}
         {% endfor %}
     </div>
@@ -29,12 +30,13 @@
 
         <div class="filme">
             <a href="{% url 'pagina-escolhido' x.id_filme %}">
-                <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}"></a>
+                <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}">
             <div class="nomeFilme">
-                <strong>{{x.nome_filme}}<br>{{x.genero}}</strong>
+                <strong>{{x.nome_filme}}</strong><strong style="color: #F0E68C">{{x.genero}}</strong>
             </div>
             <p>{{x.nome_filme}}<br>{{x.genero}}</p>
         </div>
+        </a>
         {% endif %}
         {% endfor %}
     </div>
