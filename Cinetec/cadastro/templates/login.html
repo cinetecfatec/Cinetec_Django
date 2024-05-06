@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+<link rel="stylesheet" href="{% static 'css/novoCadastro.css' %}">
+<title>Novo Cadastro</title>
+{% endblock %}
+
+{% block conteudo %}
+            <div class="conteudo">
+            
+                <div>
+                    <h1>Faça Login</h1>
+                    <h3>Cadastre-se ou informe seu e-mail e senha para prosseguir</h3>
+                </div>
+                <form class="cadastro" name="form1" method="post">
+                    <div class="conteudoLogin">
+                        <div class="inputs">
+                            <div class="inputlog">
+                                <input type="text" name="login_usuario" class="input1" required />
+                                <label for="">E-mail</label>
+                            </div>
+                            <div class="inputlog">
+                                <input type="password" name="login_senha" class="input1" required />
+                                <label for="">Senha</label>
+                            </div>
+                        </div>
+                        <input type="submit" value="Entrar" onclick="document.form1.action='logar.php'" class="enviar">
+                        <p>Esqueceu a senha?</p>
+                </form>
+            </div>
+            </div>
+{%endblock conteudo %}

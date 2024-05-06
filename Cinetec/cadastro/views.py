@@ -1,19 +1,30 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
-from django.contrib.auth import views as auth_views
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User  # Import User model
 from django.urls import reverse_lazy
 from .models import NovoCadastro
+from  django.views.generic import TemplateView
 
 
 # Create your views here.
 
 class cadastroCreateView(CreateView):
-    model = NovoCadastro
+    model = User
     form_class = NovoCadastro
     template_name = "cadastroNovo.html"
     success_url = reverse_lazy('pagina-inicio')
     
     def form_valid(self, form):
-        # Lógica para salvar o formulário
-        return super().form_valid(form)
+        # Custom logic before saving the form
+        # For example, you might modify form data or perform additional validation
+        
+        # Call the parent class's form_valid method to save the form
+        response = super().form_valid(form)
+        
+        # Custom logic after saving the form
+        # For example, you might send a notification email or log the form submission
+        
+        return response
+
+class loginView(TemplateView):
+    template_name = "login.html"
