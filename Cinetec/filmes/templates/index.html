@@ -5,8 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=StyleSheet href="{% static 'css/style.css'%}">
-    <link rel=StyleSheet href="{% static 'css/stylescell.css'%}">
+    <link rel=StyleSheet href="{% static 'css/styles.css'%}">
     {% block titulo %}
     <title>Cinetec</title>
     {% endblock %}
@@ -21,16 +20,7 @@
             <a href="programacao.html">PROGRAMAÇÃO</a>
             <a href="{% url 'pagina-sobre' %}">SOBRE NÓS</a>
         </div>
-        <div class="headercel">
-            <div class="burguer-container">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-            <a href="{% url 'pagina-inicio' %}">
-                <h1>Cinetec</h1>
-            </a>
-        </div>
+        
         <div class="headerLogin">
             <a href="{% url 'pagina-login' %}">LOGIN</a>
             <a href="{% url 'pagina-cadastro' %}">CADASTRO</a>

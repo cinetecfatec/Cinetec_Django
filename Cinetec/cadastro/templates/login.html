@@ -8,25 +8,23 @@
 {% endblock %}
 
 {% block conteudo %}
-            <div class="conteudo">
-            
-                <div>
-                    <h1>Faça Login</h1>
-                    <h3>Cadastre-se ou informe seu e-mail e senha para prosseguir</h3>
+    <div class="conteudo">
+        <div class="title">
+            <h1>Login</h1>
+            <h3>Cadastre-se ou informe seu e-mail e senha para prosseguir</h3>
+        </div>
+        <form method="post" class="form-horizontal">
+            {% csrf_token %}
+            <div class="jumbotron">
+                {{ form|crispy }}
+
+                <button type="submit" class="btn btn-lg btn-primary">Logar</button>
+                <div class="senha">
+                    <p>esqueceu sua senha?</p>
+                    <p id="senha">clique aqui</p> 
                 </div>
-<br>
-<br>
-<h1>Login</h1>
-<form method="post" class="form-horizontal">
-    {% csrf_token %}
-    <div class="jumbotron">
-        <h3>{{ form|crispy }}</h3>
-        <br>
-        <hr>
-        <button type="submit" class="btn btn-lg btn-primary">Salvar</button>
-        <br>
-        <br>
-        <p> esqueceu sua senha? clique aqui </p>
+                
+            </div>
+        </form>
     </div>
-</form>
 {% endblock conteudo %}

@@ -22,9 +22,12 @@ header {
 	position: fixed;
 	font-family: Arial, Helvetica, sans-serif;
 	z-index: 100;
+	top: 0;
 }
 
-#att {
+
+
+#att{
 	color: #bd0808;
 }
 
@@ -34,16 +37,15 @@ header {
 	flex-direction: row;
 	align-items: center;
 	gap: 1rem;
-	font-size: 1.5rem;
-	transition: 0.2s;
-
+	font-size: 1.5rem;	transition: 0.2s;
 }
-
-.logoHeader img {
-    width: 142px;
-    height: 100px;
+.logoHeader img{
+	width: 130px;
+	height: 6rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
 }
-
 
 .headerMenu a {
 	text-decoration: none;
@@ -58,6 +60,7 @@ header {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	margin-right: 1.6em;
 	gap: 1rem;
 	transition: 0.2s;
 	font-size: 18px;
@@ -73,23 +76,12 @@ header {
 .headerLogin a:hover {
 	color: white;
 }
-
-.headerLogin a:hover {
+.headerLogin a:hover{
 	cursor: pointer;
 	color: white;
 }
-
-.headerMenu a:hover {
+ .headerMenu a:hover{
 	color: white;
-}
-
-.headercel {
-	display: none;
-}
-
-.sidebar {
-	display: none;
-
 }
 
 main {
@@ -162,10 +154,6 @@ main {
 
 .listaDeFilmes a {
 	text-decoration: none;
-}
-
-p {
-	display: none;
 }
 
 .nomeFilme {

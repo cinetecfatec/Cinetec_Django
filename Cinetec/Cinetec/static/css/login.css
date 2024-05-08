@@ -1,0 +1,95 @@
+body {
+	background:#8B0000;
+	font-size: 1rem;
+	color: #DCDCDC;
+}
+
+
+main {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+	height: 90vh;
+	width: 100%;
+}
+
+.conteudo {
+    color: #F0E68C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.jumbotron{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 20em;
+    align-items: center;
+    
+}
+
+.form-group input{
+    color: white;
+    width: 20em;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 10px;
+    background-color: #440000;
+}
+
+.form-group label{
+    padding-left: 3px;
+}
+
+
+.jumbotron button{
+    margin-top: 1em;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e7d95d;
+    border: 2px solid black;
+    transition: .5s;
+}
+
+.jumbotron button:hover{
+    background-color: #ecd715;
+    transition: .5s;
+}
+
+
+.senha{
+    display: flex;
+    gap: 10px;
+}
+
+#senha{
+    cursor: pointer;
+    color: #e7d95d;
+    transition: .5s;
+}
+
+#senha:hover {
+    color: #ecd715;
+    transition: .5s;
+}
+.form-group {
+	font-size: 1rem;
+	color: #F0E68C;
+	font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+
+}
+

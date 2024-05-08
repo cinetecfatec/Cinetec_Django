@@ -3,20 +3,16 @@
 {% load crispy_forms_tags %}
 
 {% block titulo %}
-<link rel="stylesheet" href="{% static 'css/novoCadastro.css' %}">
+<link rel="stylesheet" href="{% static 'css/Cadastro.css' %}">
 <title>Novo Cadastro</title>
 {% endblock %}
 
 {% block conteudo %}
-<br>
-<br>
 <h1>Novo Cadastro</h1>
 <form method="post" class="form-horizontal">
    {% csrf_token %}
    <div class="jumbotron">
-      <h3>{{ form|crispy }}</h3>
-      <br>
-      <hr>
+      {{ form|crispy }}
       <button type="submit" class="btn btn-lg btn-primary">Salvar</button>
    </div>
 </form>
