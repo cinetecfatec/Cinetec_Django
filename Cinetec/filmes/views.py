@@ -5,8 +5,7 @@ from  django.views.generic import TemplateView,DetailView
 from .models import listaFilmes
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
-
+# Create your views here.{% endblock %}
 
 
 class indexListView(ListView):
@@ -19,6 +18,13 @@ class indexListView(ListView):
             if self.request.user.is_authenticated:
                 context["user"] = self.request.user.get_full_name()
             return context
+        
+
+class programacaoListView(ListView):
+    template_name = "programacao.html"
+    queryset = listaFilmes.objects.all()
+    context_object_name = 'filmes'
+    
 
 
 class sobreView(TemplateView):

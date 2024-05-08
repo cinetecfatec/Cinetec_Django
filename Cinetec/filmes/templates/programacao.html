@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{%load static %}
+
+{% block titulo %}
+<title>Programação</title>
+<link rel="stylesheet" href="{% static 'css/programacaoStyle.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+<div class="containerprog">
+    <div class="dataP">
+        <select name="data">
+            <option value="data1" selected>08/05/2024</option>
+            <option value="data2">09/05/2024</option>
+            <option value="data3">10/05/2024</option>
+          </select>
+    </div>
+    {% for x in filmes %}
+    {% if x.status == 'A' %}
+    <div class="filmeP">
+        <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}">
+        <div class="filmeInfo">
+            <h1>{{x.nome_filme}}</h1>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

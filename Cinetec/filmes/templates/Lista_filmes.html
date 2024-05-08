@@ -8,11 +8,11 @@
         {% if x.status == 'A' %}            
 
         <div class="filme">
-        <a href="{% url 'pagina-escolhido' x.id_filme %}">
-        <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}">
-        <div class="nomeFilme">
-            <strong>{{x.nome_filme}}</strong><strong style="color: #F0E68C">{{x.genero}}</strong>
-        </div>
+            <a href="{% url 'pagina-escolhido' x.id_filme %}">
+            <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}">
+            <div class="nomeFilme">
+                <strong>{{x.nome_filme}}</strong><strong style="color: #F0E68C">{{x.genero}}</strong>
+            </div>
         </div>
         </a>
         {% endif %}
