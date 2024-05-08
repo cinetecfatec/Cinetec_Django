@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'filmes.apps.FilmesConfig',
     'cadastro.apps.CadastroConfig',
+    'compras.apps.ComprasConfig',
     "crispy_forms",
     "crispy_bootstrap4",
     'embed_video',
@@ -144,3 +145,10 @@ constants.SUCCESS: 'alert-success',
 constants.INFO: 'alert-info',
 constants.WARNING: 'alert-warning',
 }
+
+# Autentificação 
+
+LOGIN_REDIRECT_URL = 'pagina-inicio'
+LOGOUT_REDIRECT_URL = 'pagina-inicio'
+LOGIN_URL = 'pagina-login'
+

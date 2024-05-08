@@ -2,6 +2,9 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate
+
 
 class NovoCadastro(forms.ModelForm):
     
@@ -27,3 +30,6 @@ class NovoCadastro(forms.ModelForm):
         self.helper.form_class = 'cadastroForm'
         self.helper.add_input(Submit('submit', 'Submit', css_class='btn btn-primary'))
         self.helper.label_class = 'col-md-3 col-form-label'
+
+class LoginForm(AuthenticationForm):
+    pass

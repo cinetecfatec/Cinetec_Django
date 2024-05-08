@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User  # Import User model
 from django.urls import reverse_lazy
-from .models import NovoCadastro
+from .models import NovoCadastro,LoginForm
 from  django.views.generic import TemplateView
-
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
 
@@ -26,5 +26,7 @@ class cadastroCreateView(CreateView):
         
         return response
 
-class loginView(TemplateView):
-    template_name = "login.html"
+class CustomLoginView(LoginView):
+    template_name = 'login.html'
+    authentication_form = LoginForm  # Assuming you have a custom login form
+
