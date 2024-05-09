@@ -149,6 +149,6 @@ constants.WARNING: 'alert-warning',
 # Autentificação 
 
 LOGIN_REDIRECT_URL = 'pagina-inicio'
-LOGOUT_REDIRECT_URL = 'pagina-inicio'
+LOGOUT_REDIRECT_URL = 'pagina-login'
 LOGIN_URL = 'pagina-login'
 

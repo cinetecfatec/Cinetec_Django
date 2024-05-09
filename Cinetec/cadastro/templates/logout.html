@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block titulo %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<title>Logout</title>
+{% endblock %}
+
+{% block conteudo %}
+<div class="conteudo">
+    <div class="title">
+        <h1>Logout</h1>
+<form id="logoutForm" method="post" action="{% url 'pagina-logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+    </div>
+
+</div>
+{% endblock conteudo %}

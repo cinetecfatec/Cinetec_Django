@@ -26,7 +26,4 @@ class cadastroCreateView(CreateView):
         
         return response
 
-class CustomLoginView(LoginView):
-    template_name = 'login.html'
-    authentication_form = LoginForm  # Assuming you have a custom login form
 
