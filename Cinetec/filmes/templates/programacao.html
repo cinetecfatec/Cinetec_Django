@@ -3,7 +3,7 @@
 
 {% block titulo %}
 <title>Programação</title>
-<link rel="stylesheet" href="{% static 'css/programacaoStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/progStyle.css' %}">
 {% endblock %}
 
 {% block conteudo %}
@@ -18,9 +18,47 @@
     {% for x in filmes %}
     {% if x.status == 'A' %}
     <div class="filmeP">
-        <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}">
+        <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}">  
         <div class="filmeInfo">
-            <h1>{{x.nome_filme}}</h1>
+                <a href="{% url 'pagina-escolhido' x.id_filme %}" class="titulo">
+                    <h1>{{x.nome_filme}}</h1>
+                    <p>{{x.genero}}</p>  
+                </a>
+            <div class="sessoes">
+                <a href="" class="sessao">
+                    <h3>Sessão 1</h3>
+                    <h3>Horario: 23:00</h3>
+                    <h3>Dublado</h3>
+                    <h3>2D</h3>
+                </a>
+                <a href="" class="sessao">
+                    <h3>Sessão 2</h3>
+                    <h3>Horario: 12:00</h3>
+                    <h3>Legendado</h3>
+                    <h3>3D</h3>
+                </a>
+                <a href="" class="sessao">
+                    <h3>Sessão 3</h3>
+                    <h3>Horario: 00:00</h3>
+                    <h3>Dublado</h3>
+                    <h3>3D</h3>
+                </a>
+            </div>
+            <div class="indicativa">
+                {% if x.classificacao == 10 %}
+                        <img src="{% static 'img/10.png'%}">
+                    {% elif x.classificacao == 12 %}
+                        <img src="{% static 'img/12.png'%}">
+                    {% elif x.classificacao == 14 %}
+                        <img src="{% static 'img/14.png'%}">
+                    {% elif x.classificacao == 16 %}
+                        <img src="{% static 'img/16.png'%}">
+                    {% elif x.classificacao == 18 %}
+                        <img src="{% static 'img/18.png'%}">
+                    {% else %}
+                        <img src="{% static 'img/livre.png'%}">
+                    {% endif %}
+            </div>
         </div>
     </div>
     {% endif %}
