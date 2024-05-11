@@ -13,12 +13,6 @@ class indexListView(ListView):
         queryset = listaFilmes.objects.all()
         context_object_name = 'filmes'
 
-class programacaoListView(ListView):
-    template_name = "programacao.html"
-    queryset = listaFilmes.objects.all()
-    context_object_name = 'filmes'
-    
-
 
 class sobreView(TemplateView):
     template_name = "sobre_nos.html"

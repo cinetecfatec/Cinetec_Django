@@ -9,40 +9,33 @@
 {% block conteudo %}
 <div class="containerprog">
     <div class="dataP">
+
         <select name="data">
-            <option value="data1" selected>08/05/2024</option>
-            <option value="data2">09/05/2024</option>
-            <option value="data3">10/05/2024</option>
+            {% for data in dados.datas %}
+                <option value ={{data_esc}}>{{data.data_sessao}}</option>
+            {% endfor %}
           </select>
     </div>
-    {% for x in filmes %}
+    {% for x in dados.filmes %}
     {% if x.status == 'A' %}
     <div class="filmeP">
         <img src="{{ x.foto_cartaz }}" alt="{% static 'img/imagem_filmes.png' %}">  
         <div class="filmeInfo">
                 <a href="{% url 'pagina-escolhido' x.id_filme %}" class="titulo">
                     <h1>{{x.nome_filme}}</h1>
-                    <p>{{x.genero}}</p>  
+                    <p>{{x.genero}} </p>  
                 </a>
             <div class="sessoes">
+                {% for y in dados.sessoes %}
+                {% if y.data_sessao == data_esc %}
                 <a href="" class="sessao">
-                    <h3>Sessão 1</h3>
-                    <h3>Horario: 23:00</h3>
-                    <h3>Dublado</h3>
-                    <h3>2D</h3>
+                    <h3>Sessão {{y.ID_Sessao}}</h3>
+                    <h3>Horario: {{y.horario_sessao}}</h3>
+                    <h3>{{y.dub_leg}}</h3>
+                    <h3>{{y.modo_2d_3d}}</h3>
                 </a>
-                <a href="" class="sessao">
-                    <h3>Sessão 2</h3>
-                    <h3>Horario: 12:00</h3>
-                    <h3>Legendado</h3>
-                    <h3>3D</h3>
-                </a>
-                <a href="" class="sessao">
-                    <h3>Sessão 3</h3>
-                    <h3>Horario: 00:00</h3>
-                    <h3>Dublado</h3>
-                    <h3>3D</h3>
-                </a>
+                {% endif %}
+                {% endfor %}
             </div>
             <div class="indicativa">
                 {% if x.classificacao == 10 %}
