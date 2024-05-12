@@ -15,7 +15,7 @@ class ProgramacaoListView(ListView):
     def get_queryset(self):
         filmes = listaFilmes.objects.all()
         sessoes = Sessoes.objects.all()
-        datas = Sessoes.objects.filter(data_sessao__gte=date.today()).values('data_sessao').distinct()
+        datas = Sessoes.objects.filter(data_sessao__gte=date.today()).values('data_sessao').distinct().order_by('data_sessao')
         hoje = date.today()
         return {'filmes': filmes, 'sessoes': sessoes, 'datas': datas, 'hoje': hoje}
 

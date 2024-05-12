@@ -9,7 +9,7 @@
 {% block conteudo %}
 <div class="containerprog">
     <div class="dataP">
-        <select id="dataSelect" name="data" onchange="enviarValor()">
+        <select id="dataSelect" name="data" onchange=enviarValor()>
             {% for data in dados.datas %}
             <option value="{{ data.data_sessao }}">{{ data.data_sessao }}</option>
             {% endfor %}
@@ -26,12 +26,20 @@
             </a>
             <div class="sessoes">
                 {% for y in dados.sessoes %}
-                {% if y.data_sessao == dados.hoje and y.Id_filme == x.id_filme %}
+                {% if y.data_sessao == dados.hoje and  y.Id_filme_id == x.id_filme  %}
                 <a href="" class="sessao">
-                    <h3>Sessão {{y.ID_Sessao}}</h3>
+                    <h3>Sessão {{y.Id_sessao}}</h3>
                     <h3>Horario: {{y.horario_sessao}}</h3>
-                    <h3>{{y.dub_leg}}</h3>
-                    <h3>{{y.modo_2d_3d}}</h3>
+                    {% if y.dub_leg == 'D' %}
+                        <h3>Dublado</h3>
+                    {% else %}
+                        <h3>Legendado</h3>
+                    {% endif %}
+                    {% if y.modo_2d_3d == '2' %}
+                        <h3>2D</h3>
+                    {% else %}
+                        <h3>3D</h3>
+                    {% endif %}
                 </a>
                 {% endif %}
                 {% endfor %}
@@ -58,7 +66,7 @@
 </div>
 {% endblock %}
 
-{% block scripts %}
+    {% block scripts %}
 <script>
     function enviarValor() {
         var valor = document.getElementById('dataSelect').value;
@@ -75,4 +83,4 @@
         xhr.send(JSON.stringify({ 'valor': valor }));
     }
 </script>
-{% endblock %}
+    {% endblock %}

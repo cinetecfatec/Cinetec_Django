@@ -14,5 +14,9 @@ class Sessoes(models.Model):
     modo_2d_3d = models.CharField(max_length=1, choices=modo_2d_3d_model)
     sala = models.IntegerField()
     assentos = models.CharField(max_length=128, default='e' * 128)
+    
+    class Meta:
+      ordering = ['-Id_filme']
+    
 
 
