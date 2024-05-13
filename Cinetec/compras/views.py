@@ -3,7 +3,10 @@ from django.views.generic import TemplateView, ListView
 from filmes.models import listaFilmes
 from .models import Sessoes
 from datetime import date
-from django.http import JsonResponse
+from django.shortcuts import redirect
+from django.urls import reverse
+from .forms import MeuForm
+from django.http import HttpResponse
 
 class IngressoTemplateview(TemplateView):
     template_name = "pagina-compras"
@@ -19,11 +22,20 @@ class ProgramacaoListView(ListView):
         hoje = date.today()
         return {'filmes': filmes, 'sessoes': sessoes, 'datas': datas, 'hoje': hoje}
 
-    def post(self, request, *args, **kwargs):
-        if request.is_ajax():
-            data_esc = request.POST.get('valor')
-            # Aqui você pode processar o valor conforme necessário
-            # Por exemplo, você pode retornar uma resposta JSON com os resultados do processamento
-            return JsonResponse({'status': 'success', 'valor': data_esc})
+
+class DataEscolhidaView(TemplateView):
+    template_name = "data_escolhida"
+    form_class = MeuForm
+    success_url = 'pagina-programacao'
+
+    def form_valid(self):
+        if request.method == 'POST':
+            valor_selecionado = request.POST.get('opcao')
+            # Faça o processamento necessário com o valor selecionado
+            # Aqui você pode retornar qualquer resposta que desejar
+            return HttpResponse("Valor selecionado: " + valor_selecionado)
         else:
-            return JsonResponse({'status': 'error', 'message': 'Método de requisição inválido'}, status=400)
+            return HttpResponse("Método não permitido")
+        
+    # e no fim retorna o form para que o submit ocorra.
+        #return super().form_valid(form)

@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block conteudo %}
-<div class="containerprog">
+<div class="containerprog" id="sessaoSelecionada">
     <div class="dataP">
-        <select id="dataSelect" name="data" onchange=enviarValor()>
+            <select name="opcao" id="opcao" onchange="valorSelecionado()">
             {% for data in dados.datas %}
             <option value="{{ data.data_sessao }}">{{ data.data_sessao }}</option>
             {% endfor %}
@@ -26,19 +26,19 @@
             </a>
             <div class="sessoes">
                 {% for y in dados.sessoes %}
-                {% if y.data_sessao == dados.hoje and  y.Id_filme_id == x.id_filme  %}
+                {% if y.data_sessao == dados.hoje and y.Id_filme_id == x.id_filme %}
                 <a href="" class="sessao">
                     <h3>Sessão {{y.Id_sessao}}</h3>
                     <h3>Horario: {{y.horario_sessao}}</h3>
                     {% if y.dub_leg == 'D' %}
-                        <h3>Dublado</h3>
+                    <h3>Dublado</h3>
                     {% else %}
-                        <h3>Legendado</h3>
+                    <h3>Legendado</h3>
                     {% endif %}
                     {% if y.modo_2d_3d == '2' %}
-                        <h3>2D</h3>
+                    <h3>2D</h3>
                     {% else %}
-                        <h3>3D</h3>
+                    <h3>3D</h3>
                     {% endif %}
                 </a>
                 {% endif %}
@@ -66,21 +66,16 @@
 </div>
 {% endblock %}
 
-    {% block scripts %}
+{% block scripts %}
 <script>
-    function enviarValor() {
-        var valor = document.getElementById('dataSelect').value;
+    function valorSelecionado() {
+    var elemento = document.getElementById("opcao").value;
 
-        // Enviar valor para o servidor usando AJAX
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/processar_valor/', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                console.log('Valor enviado com sucesso!');
-            }
-        };
-        xhr.send(JSON.stringify({ 'valor': valor }));
-    }
+        $.ajax({
+            method: "POST",
+            url: "{% url 'data_escolhida' %}",
+            data: { opcao: "elemento" }
+        })
+}
 </script>
-    {% endblock %}
+{% endblock %}
