@@ -27,7 +27,7 @@
             <div class="sessoes">
                 {% for y in dados.sessoes %}
                 {% if y.data_sessao == dados.hoje and y.Id_filme_id == x.id_filme %}
-                <a href="" class="sessao">
+                <a href="{% url 'pagina-compra' y.Id_sessao %}" class="sessao">
                     <h3>Sessão {{y.Id_sessao}}</h3>
                     <h3>Horario: {{y.horario_sessao}}</h3>
                     {% if y.dub_leg == 'D' %}
@@ -70,7 +70,7 @@
 <script>
     function valorSelecionado() {
     var elemento = document.getElementById("opcao").value;
-
+    console.log("a")
         $.ajax({
             method: "POST",
             url: "{% url 'data_escolhida' %}",

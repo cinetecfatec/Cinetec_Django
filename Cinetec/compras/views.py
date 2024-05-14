@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from filmes.models import listaFilmes
 from .models import Sessoes
 from datetime import date
@@ -39,3 +39,7 @@ class DataEscolhidaView(TemplateView):
         
     # e no fim retorna o form para que o submit ocorra.
         #return super().form_valid(form)
+
+class CompraDetailView(DetailView):
+    model = listaFilmes    
+    template_name = "Compra.html"

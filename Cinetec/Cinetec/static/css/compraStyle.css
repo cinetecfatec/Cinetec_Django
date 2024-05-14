@@ -1,100 +1,16 @@
-*{
-	margin:0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	background:#8B0000;
-	font-size: 1rem;
-	/* font-weight: 400; */
-	color: #DCDCDC;
-	margin: 0%;
-	padding: 0%;
-	height: 100%;
-}
-
-header {
-	display: flex;
+main {
 	align-items: center;
-	justify-content: space-between;
-	padding-right: 2rem;
-	width: 100%;
-	height: 6rem;
-	background-color: black;
-	position: fixed;
-	font-family: Arial, Helvetica, sans-serif;
-	z-index: 100;
-	top: 0;
-}
-
-.headerMenu {
-	font-family: Arial, Helvetica, sans-serif;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 1rem;
-	font-size: 1.5rem;	
-	transition: 0.2s;
-	
-}
-.logoHeader img{
-	display: flex;
-	width: 130px;
-	height: 6rem;
-}
-
-.headerMenu a {
-	text-decoration: none;
-	color: #DCDCDC;
-	transition: 0.2s;
-	cursor: pointer;
-	margin-left: 2em;
-	font-size: 25px;
-}
-
-.headerLogin {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 1rem;
-	transition: 0.2s;
-	font-size: 18px;
-}
-
-.headerLogin a {
-	text-decoration: none;
-	cursor: pointer;
-	color: #DCDCDC;
-	transition: 0.2s;
-}
-
-.headerLogin a:hover {
-	color: white;
-}
-.headerLogin a:hover{
-	cursor: pointer;
-	color: white;
-}
- .headerMenu a:hover{
-	color: white;
-}
-.headercel{
-	display: none;
-}
-.sidebar{
-	display: none;
-}
-main{
-	margin-top: 10rem;
-	margin-bottom: 4rem;
-}
-.container{
-	display: flex;
 	justify-content: space-around;
-	align-items: center;
-	height: 70%;
+	gap: 3em;
+	padding: 3em 0;
+	width: 100%;
+    flex-direction: row;
+    margin-top: 4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #F0E68C;
+    margin-top: 6rem;
 }
+
 .filme img {
 	width: 100%;
 	border-radius: 10px;
@@ -102,16 +18,20 @@ main{
 	min-width: 100px;
 }
 .filme{
-	width: 17%;
+	width: 20%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	gap: 2em;
 	text-align: center;
+    max-width: none;
+    max-height: none;
+    cursor: default;
 }
 .cinema{
 	width: 550px;
+    min-width: 550px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -129,7 +49,7 @@ main{
 	display: flex;
 	flex-direction: row-reverse;
 	gap: 1.5em;
-	border-bottom: black solid;
+	border-bottom: black solid 3px;
 	padding-bottom: 1.5em;
 	padding-left: 1.5em;
 	padding-right: 1.5em;
@@ -200,7 +120,7 @@ h5{
 	justify-content: center;
 	align-items: center;
 	gap: 1.5em;
-	border: solid rgba(0, 0, 0, 0.527);
+	border: solid black 3px;
 	min-width: auto;
 	
 	border-radius: 30px;
@@ -224,7 +144,6 @@ h3{
 
 .compra{
 	display: flex;
-	justify-content: space-evenly;
 	align-items: center;
 	gap: 2em;
 }
@@ -234,46 +153,4 @@ h3{
 }
 .preco h3{
 	display: flex;
-}
-footer {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	padding: 2rem;
-	width: 100%;
-	height: 6rem;
-	background-color: black;
-	
-}
-
-footer i {
-	cursor: pointer;
-}
-
-footer h2 {
-	color: #8B0000;
-	font-weight: bolder;
-	font-size: 1.5rem;
-}
-
-.iconesRedesSociais {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	gap: 0.5rem;
-
-
-}
-
-
-
-.googlePlayIcone {
-	display: flex;
-	flex-direction: row;
-	align-items: end;
-	justify-content: center;
-	gap: 0.5rem;
-
 }

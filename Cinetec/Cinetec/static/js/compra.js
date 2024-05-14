@@ -1,8 +1,8 @@
 
 $(document).ready(()=>{
-       let livre = './icon_cadeiras/assento_disp.png';
-       let selecionado = './icon_cadeiras/assento_livre.png';
-       let ocupado = 'icon_cadeiras/assento_ocup.png';
+       let livre = "{% static 'img/assento_disp.png' %}";
+       let selecionado = "{% static 'img/assento_disp.png' %}";
+       let ocupado = "{% static 'img/assento_disp.png' %}";
     let preco = document.getElementById("preco").innerHTML;  
     let contador = 0;
    let cadera = document.getElementById("cadera");
