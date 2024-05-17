@@ -16,14 +16,14 @@ class cadastroCreateView(CreateView):
     
     def form_valid(self, form):
         # Custom logic before saving the form
-        # For example, you might modify form data or perform additional validation
-        
-        # Call the parent class's form_valid method to save the form
         response = super().form_valid(form)
         
         # Custom logic after saving the form
-        # For example, you might send a notification email or log the form submission
+        # Set is_staff to True
+        self.object.is_staff = True
+        self.object.save()
         
         return response
+
 
 

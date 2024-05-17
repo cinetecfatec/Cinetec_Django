@@ -13,7 +13,7 @@
             {% for data in dados.datas %}
             {% if data.data_sessao == dados.data_esc %}
             <option value="{{ data.data_sessao }}" selected >{{ data.data_sessao }}</option>
-            <script > valorSelecionado() </script>
+            <script > valorSelecionado(); </script>
             {% else %}
             <option value="{{ data.data_sessao }}">{{ data.data_sessao }}</option>
             {% endif %}
