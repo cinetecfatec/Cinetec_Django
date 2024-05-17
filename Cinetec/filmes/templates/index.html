@@ -16,7 +16,7 @@
                 <img src="{% static 'img/cinetec_logo.png' %}">
             </div>
             <a href="{% url 'pagina-inicio' %}">INÍCIO</a>
-            <a href="{% url 'pagina-programacao' %}">PROGRAMAÇÃO</a>
+            <a href="{% url 'pagina-programacao' data_esc='hoje' %}">PROGRAMAÇÃO</a>
             <a href="{% url 'pagina-sobre' %}">SOBRE NÓS</a>
         </div>
         
@@ -41,7 +41,7 @@
 {% include 'footer.html' %}
 
 {% block scripts %}
-    
+
 {% endblock %}
 </body>
 </html>

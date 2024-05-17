@@ -12,6 +12,7 @@ class indexListView(ListView):
         template_name = "index.html"
         queryset = listaFilmes.objects.all()
         context_object_name = 'filmes'
+        
 
 
 class sobreView(TemplateView):

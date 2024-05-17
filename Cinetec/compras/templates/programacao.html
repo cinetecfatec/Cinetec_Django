@@ -11,9 +11,14 @@
     <div class="dataP">
             <select name="opcao" id="opcao" onchange="valorSelecionado()">
             {% for data in dados.datas %}
+            {% if data.data_sessao == dados.data_esc %}
+            <option value="{{ data.data_sessao }}" selected >{{ data.data_sessao }}</option>
+            <script > valorSelecionado() </script>
+            {% else %}
             <option value="{{ data.data_sessao }}">{{ data.data_sessao }}</option>
+            {% endif %}
             {% endfor %}
-        </select>
+        </select >
     </div>
     {% for x in dados.filmes %}
     {% if x.status == 'A' %}
@@ -26,9 +31,9 @@
             </a>
             <div class="sessoes">
                 {% for y in dados.sessoes %}
-                {% if y.data_sessao == dados.hoje and y.Id_filme_id == x.id_filme %}
+                {% if  y.data_sessao == dados.data_esc and y.Id_filme_id == x.id_filme %}
                 <a href="{% url 'pagina-compra' y.Id_sessao %}" class="sessao">
-                    <h3>Sessão {{y.Id_sessao}}</h3>
+                    <h3>Sala {{y.sala}} </h3>
                     <h3>Horario: {{y.horario_sessao}}</h3>
                     {% if y.dub_leg == 'D' %}
                     <h3>Dublado</h3>
@@ -68,14 +73,29 @@
 
 {% block scripts %}
 <script>
+    console.log("o console funciona ");
     function valorSelecionado() {
-    var elemento = document.getElementById("opcao").value;
-    console.log("a")
-        $.ajax({
-            method: "POST",
-            url: "{% url 'data_escolhida' %}",
-            data: { opcao: "elemento" }
-        })
-}
+        var elemento = document.getElementById("opcao");
+        var valor = elemento.value;
+            console.log("teste funcionou " + valor)
+            // Convert the data to a JSON string
+var jsonData = JSON.stringify(valor);
+localStorage.setItem('myData', jsonData);
+ // Construct the cookie value
+ var cookieValue = jsonData + '; path={% url 'data_escolhida' %}';  // Adjust the path as needed
+
+ // Set the cookie
+document.cookie = 'data_esc=' + cookieValue;
+
+ // Redirect to the Django view
+ window.location.href = "{% url 'data_escolhida' %}";  // Replace 'data_escolhida' with the actual URL of your Django view
+            /*
+            $.ajax({
+                method: "POST",
+                url: "{% url 'data_escolhida' %}",
+                data: { opcao: valor };
+            });
+            */
+    }
 </script>
 {% endblock %}

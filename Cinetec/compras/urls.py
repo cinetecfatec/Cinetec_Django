@@ -3,7 +3,7 @@ from .views import IngressoTemplateview,ProgramacaoListView,DataEscolhidaView,Co
 
 urlpatterns = [
     path("compras/ingresso", IngressoTemplateview.as_view(), name="pagina-ingresso"),
-    path("programacao/", ProgramacaoListView.as_view(), name="pagina-programacao"),
+    path("programacao/<str:data_esc>/", ProgramacaoListView.as_view(), name="pagina-programacao"),
     path("data_escolhida/", DataEscolhidaView.as_view(), name="data_escolhida"),
     path("compra/<int:pk>/", CompraDetailView.as_view(), name="pagina-compra"),
 ]
