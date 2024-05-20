@@ -38,7 +38,18 @@ class ProgramacaoListView(ListView):
 
 
 class DataEscolhidaView(TemplateView):
-    template_name = "data_escolhida"
+    template_name = "data_escolhida.html"
+    
+    def dispatch(self, request, *args, **kwargs):
+        # Check if the cookie exists in the request
+        data_from_cookie = request.COOKIES.get('data_esc')
+        if data_from_cookie:
+            print(data_from_cookie)
+            print(type(data_from_cookie))
+        else:
+            print('No data found in cookie.')
+        # Continue with the normal dispatch process
+        return redirect('pagina-programacao',{'data_esc':data_from_cookie})
     
     
 class IngressoEscolhidoView(TemplateView):
@@ -70,7 +81,8 @@ class CompraListView(ListView):
         sessao = Sessoes.objects.filter(Id_sessao = pk)
         filmes = listaFilmes.objects.all()
         sessao_assentos = Sessoes.objects.get(Id_sessao=pk)
-        assentos = sessao_assentos.assentos  # Fetch the 'assentos' field value
+        # assentos = sessao_assentos.assentos  # Fetch the 'assentos' field value
+        assentos = 'e' * 50 + 'o' * 78
 
         return {'filmes': filmes, 'sessoes': sessoes, 'pk': pk, 'sessao':sessao, 'assentos': assentos }
     
