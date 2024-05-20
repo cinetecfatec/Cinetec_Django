@@ -3,7 +3,7 @@
 
 {% block titulo %}
 <title>Programação</title>
-<link rel="stylesheet" href="{% static 'css/progStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/programacaoStyle.css' %}">
 {% endblock %}
 
 {% block conteudo %}
@@ -77,18 +77,19 @@
     function valorSelecionado() {
         var elemento = document.getElementById("opcao");
         var valor = elemento.value;
-            console.log("teste funcionou " + valor)
-            // Convert the data to a JSON string
-var jsonData = JSON.stringify(valor);
-localStorage.setItem('myData', jsonData);
- // Construct the cookie value
- var cookieValue = jsonData + '; path={% url 'data_escolhida' %}';  // Adjust the path as needed
+        console.log("teste funcionou " + valor)
+        // Convert the data to a JSON string
+        var jsonData = JSON.stringify(valor);
+        localStorage.setItem('myData', jsonData);
+        // Construct the cookie value
+        var cookieValue = jsonData + "; path={% url 'data_escolhida' %}";  // Adjust the path as needed
 
- // Set the cookie
-document.cookie = 'data_esc=' + cookieValue;
+        // Set the cookie
+        document.cookie = 'data_esc=' + cookieValue;
 
- // Redirect to the Django view
- window.location.href = "{% url 'data_escolhida' %}";  // Replace 'data_escolhida' with the actual URL of your Django view
+        // Redirect to the Django view
+        window.location.href = "{% url 'data_escolhida' %}";  
+        // Replace 'data_escolhida' with the actual URL of your Django view
 
     }
 </script>

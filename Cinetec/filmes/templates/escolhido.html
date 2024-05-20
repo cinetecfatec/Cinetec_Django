@@ -17,7 +17,11 @@
     <div class="filme">
         <h1 style="text-transform: uppercase;">{{object.nome_filme}}</h1>
         <img src="{{object.foto_cartaz}}">
-        <h1><a href="{% url 'pagina-programacao' %}">COMPRE JÁ</a></h1>
+        {% if object.status == "A" %}
+            <h1><a href="{% url 'pagina-programacao' data_esc='hoje' %}">COMPRE JÁ</a></h1>
+        {% else %}
+            <h2>EM BREVE</h2>
+        {% endif %}
     </div>
 
     <div class="sesh">  

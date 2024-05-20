@@ -16,7 +16,7 @@ main {
 
 .dataP{
 	background-color: #440000;
-	width: 45em;
+	width: 50em;
 	padding: 15px 15px 15px 15px;
 	border: 2px black solid;
 	border-radius: 10px;
@@ -33,12 +33,13 @@ main {
 
 .filmeP{
 	background-color: #440000;
-	width: 45em;
+	width: 50em;
 	padding: 15px 15px 15px 15px;
 	border: 2px black solid;
 	border-radius: 10px;
 	display: flex;
 	color: #F0E68C;
+    gap: 15px;
 }
 
 .filmeP img{
@@ -52,14 +53,43 @@ main {
 	align-items: center;
 	flex-direction: column;
 	width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 1.5em;
+	justify-content: space-between;
 }
 
 .sessoes{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+    width: 100%;
+    gap: 1em;
 }
 
-.sessoesInfo{
-	display: flex;
+.titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #F0E68C;
+}
+
+.indicativa{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+.indicativa img{
+    width: 40px;
+}
+
+.sessao{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #F0E68C;
+    background-color: black;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
 }

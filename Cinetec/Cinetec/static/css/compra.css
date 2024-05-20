@@ -1,14 +1,35 @@
 main {
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-around;
 	gap: 3em;
 	padding: 3em 0;
 	width: 100%;
     flex-direction: row;
-    margin-top: 4rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #F0E68C;
     margin-top: 6rem;
+}
+
+.filmeInfo{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    border: black 1px solid;
+    padding-top: 5px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    background-color: #400000;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: black 1px solid;
+    padding-top: .5em;
+    padding-bottom: .5em;
 }
 
 .filme img {

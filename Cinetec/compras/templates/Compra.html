@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block titulo %}
-    <link rel=StyleSheet href="{% static 'css/compraStyle.css' %}">
+    <link rel=StyleSheet href="{% static 'css/compra.css' %}">
 
     <title>Compra</title>
 {% endblock %}
@@ -15,6 +15,26 @@
         <div class="filme">
             <h1 style="text-transform: uppercase;">{{x.nome_filme}}</h1>
             <img src="{{x.foto_cartaz}}">
+            <div class="filmeInfo">
+                <div>
+                    <h3>Informaçoes sobre a sessão:</h3>
+                </div>
+                <div class="info">
+                    <h3>Sala {{y.sala}} </h3>
+                    <h3>{{y.data_sessao}}</h3>
+                    <h3>Horario: {{y.horario_sessao}}</h3>
+                    {% if y.dub_leg == 'D' %}
+                    <h3>Dublado</h3>
+                    {% else %}
+                    <h3>Legendado</h3>
+                    {% endif %}
+                    {% if y.modo_2d_3d == '2' %}
+                    <h3>2D</h3>
+                    {% else %}
+                    <h3>3D</h3>
+                    {% endif %}
+                </div>      
+            </div>
         </div>
 {% endif %}
 {% endfor %}
