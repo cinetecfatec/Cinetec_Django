@@ -89,13 +89,7 @@ document.cookie = 'data_esc=' + cookieValue;
 
  // Redirect to the Django view
  window.location.href = "{% url 'data_escolhida' %}";  // Replace 'data_escolhida' with the actual URL of your Django view
-            /*
-            $.ajax({
-                method: "POST",
-                url: "{% url 'data_escolhida' %}",
-                data: { opcao: valor };
-            });
-            */
+
     }
 </script>
 {% endblock %}

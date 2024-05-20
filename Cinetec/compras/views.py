@@ -8,6 +8,7 @@ from django.urls import reverse
 from .forms import MeuForm
 from django.http import HttpResponse
 import ast
+import json
 
 
 class IngressoTemplateview(TemplateView):
@@ -38,6 +39,10 @@ class ProgramacaoListView(ListView):
 
 class DataEscolhidaView(TemplateView):
     template_name = "data_escolhida"
+    
+    
+class IngressoEscolhidoView(TemplateView):
+    template_name = "IngressoEscolhido.html"
 
     def dispatch(self, request, *args, **kwargs):
         # Check if the cookie exists in the request
@@ -50,6 +55,40 @@ class DataEscolhidaView(TemplateView):
         # Continue with the normal dispatch process
         return redirect('pagina-programacao',{'data_esc':data_from_cookie})
 
-class CompraDetailView(DetailView):
-    model = listaFilmes    
+class CompraListView(ListView):
     template_name = "Compra.html"
+    context_object_name = 'dados'    
+        
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pk'] = self.kwargs.get('pk')
+        return context
+        
+    def get_queryset(self):
+        pk = self.kwargs.get('pk')
+        sessoes = Sessoes.objects.all()
+        sessao = Sessoes.objects.filter(Id_sessao = pk)
+        filmes = listaFilmes.objects.all()
+        sessao_assentos = Sessoes.objects.get(Id_sessao=pk)
+        assentos = sessao_assentos.assentos  # Fetch the 'assentos' field value
+
+        return {'filmes': filmes, 'sessoes': sessoes, 'pk': pk, 'sessao':sessao, 'assentos': assentos }
+    
+class CheckoutListview(ListView):
+    template_name = "checkout.html"
+    context_object_name = 'dados'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['assentos_check'] = self.kwargs.get('assentos_check')
+        return context
+
+    def get_queryset(self):
+        pk = self.kwargs.get('assentos_check')
+        sessoes = Sessoes.objects.all()
+        sessao = Sessoes.objects.filter(Id_sessao = pk)
+        filmes = listaFilmes.objects.all()
+        sessao_assentos = Sessoes.objects.get(Id_sessao=pk)
+        assentos = sessao_assentos.assentos  # Fetch the 'assentos' field value
+
+        return {'filmes': filmes, 'sessoes': sessoes, 'pk': pk, 'sessao':sessao, 'assentos': assentos }

@@ -3,19 +3,30 @@
 
 {% block titulo %}
     <link rel=StyleSheet href="{% static 'css/compraStyle.css' %}">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous"></script>
-    <script src="{% static 'js/assentos.js'%}"></script>
-    <script src="https://kit.fontawesome.com/9bbaee9804.js" crossorigin="anonymous"></script>
+
     <title>Compra</title>
 {% endblock %}
 
 {% block conteudo %}
-    <div class="filme">
-        <h1 style="text-transform: uppercase;">{{object.nome_filme}}</h1>
-        <img src="{{object.foto_cartaz}}">
-    </div>
+{% for x in dados.filmes %}
+{% for y in dados.sessao %}
+{% if x.id_filme == y.Id_filme_id%}
 
-    {% include 'assentos.html' %}
+        <div class="filme">
+            <h1 style="text-transform: uppercase;">{{x.nome_filme}}</h1>
+            <img src="{{x.foto_cartaz}}">
+        </div>
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% include 'assentos.html' %}
 
 {% endblock %}
+{% block scripts %}
+<script>
+    var assentos = "{{ dados.assentos }}";
+    console.log(assentos);
+</script>
+<script src="{% static 'js/assentos.js'%}"></script>
+
+{% endblock %} 
