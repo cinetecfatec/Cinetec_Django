@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+    console.log("documento", document.getElementById("bt_compra"))
     let assentos_banco = Assentos(assentos);
     console.log("assentos_banco = ");
     console.log(assentos_banco);
@@ -48,16 +49,21 @@ $(document).ready(function() {
         });
     }
 
-    document.getElementById("compra").addEventListener('click', function(compra_) {
-        todasCadera.forEach(element => {
-            if (element.status == 'selecionado') {
-                element.status = 'ocupado';
-                let id = "#" + element.id;
-                $(id).attr('src', ocupado);
-            }
-        });
-            //falta resolver o problema do envio
-        localStorage.setItem("cadeiras_check", JSON.stringify(todasCadera));
+    document.getElementById("bt_compra").addEventListener('click', function(compra_) {
+        let caminho = window.location.origin
+
+    fetch(caminho +"/compras/ingresso_escolhido",
+{
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: "POST",
+    body: JSON.stringify(todasCadera)
+})
+.then(window.location.href = caminho +"/compras/ingresso_escolhido")
+
+
     });
 
     function existeSalvo(existe, index) {

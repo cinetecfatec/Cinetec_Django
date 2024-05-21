@@ -54,17 +54,10 @@ class DataEscolhidaView(TemplateView):
     
 class IngressoEscolhidoView(TemplateView):
     template_name = "IngressoEscolhido.html"
-
-    def dispatch(self, request, *args, **kwargs):
-        # Check if the cookie exists in the request
-        data_from_cookie = request.COOKIES.get('data_esc')
-        if data_from_cookie:
-            print(data_from_cookie)
-            print(type(data_from_cookie))
-        else:
-            print('No data found in cookie.')
-        # Continue with the normal dispatch process
-        return redirect('pagina-programacao',{'data_esc':data_from_cookie})
+    
+    def post(self,request,**args, **kwargs):
+            meu_dado = request.POST.get
+            return super().get(request,**args, **kwargs)
 
 class CompraListView(ListView):
     template_name = "Compra.html"
