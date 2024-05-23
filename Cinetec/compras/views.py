@@ -53,11 +53,11 @@ class DataEscolhidaView(TemplateView):
     
     
 class IngressoEscolhidoView(TemplateView):
-    template_name = "IngressoEscolhido.html"
+    template_name = "ingressoEscolhido.html"
     
-    def post(self,request,**args, **kwargs):
+    def post(self,request,*args, **kwargs):
             meu_dado = request.POST.get
-            return super().get(request,**args, **kwargs)
+            return super().get(request,*args, **kwargs)
 
 class CompraListView(ListView):
     template_name = "Compra.html"

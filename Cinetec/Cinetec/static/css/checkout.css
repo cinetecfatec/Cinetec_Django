@@ -1,0 +1,165 @@
+main {
+	align-items: center;
+	justify-content: flex-start;
+	gap: 5em;
+	padding: 3em 0;
+	width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #F0E68C;
+    margin-top: 6rem;
+    flex-direction: column;
+}
+
+.ingressos{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.3em;
+}
+
+.info{
+    display: flex;
+    gap: 5px;
+}
+
+.ingresso{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+    background-color: #440000;
+    border: 2px black solid;
+    border-radius: 10px;
+    
+}
+
+select{
+	border: 2px black solid;
+	background-color: #440000;
+	color: #F0E68C;
+	padding: 3px 6px 3px 3px;
+	border-radius: 5px;
+}
+
+.bomboniere{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.title{
+    font-size: 2em;
+    background-color: black;
+    border-top-right-radius: 11px;
+    border-top-left-radius: 11px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: .5em 0 .5em 0;
+}
+
+.bomboniereContent{
+    display: flex;
+    padding: 2em 0em 2em 0em;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+
+}
+
+.comida{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.comida img{
+    width: 5em;
+}
+
+.comidacontent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    border: 2px black solid;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+    min-width: 180px;
+    max-width: 180px;
+    justify-content: center;
+
+}
+
+.comidacontent input{
+    background-color: black;
+    border: 1px black solid;
+    width: 1.5em;
+    color: #F0E68C;
+    border-radius: 3px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.botoes input{
+    cursor: pointer;
+    
+}
+
+.menos{
+    background-color: #f84031 !important;
+
+}
+
+.mais{
+    background-color: #30ce5f !important;
+}
+
+.botoes input{
+    border: none;
+    width: 2em; 
+    color: black;
+}
+
+.compra{
+    width: 70%;
+    background-color: #440000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+    padding: .5em 0 .5em;
+    border: 2px black solid;
+    border-radius: 15px;
+
+}
+
+.compra input{
+    font-size: 2rem;
+    background-color: #ebd72b;
+    border: 2px black solid;
+    cursor: pointer;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+    transition: .5s;
+}
+
+.compra input:hover{
+    background-color: #ffe600;
+    transition: .3s;
+}
+
+.preco{
+    display: flex;
+    gap: 10px;
+}

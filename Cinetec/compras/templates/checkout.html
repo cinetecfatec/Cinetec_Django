@@ -1,0 +1,176 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Checkout</title>
+<link rel="stylesheet" href="{% static 'css/Checkout.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="ingressos">
+    <!-- aqui vai um for pra renderiza todos os ingressos -->
+    <div class="ingresso">
+        <div class="info">Sala 1</div>
+        <div class="info">Mussun o filmis</div>
+        <div class="info">Sessão: 1</div>
+        <div class="info">Cadeira: 13</div>
+        <div class="info">
+            Tipo do ingresso:
+            <select name="tipo-ingresso" id="ingresso" onchange="setpreco('preco')">
+                <option value="inteira" selected>Inteira</option>
+                <option value="meia">Meia</option>
+                <option value="vip">Vip</option>
+            </select>
+        </div>
+        <div class="info">Preço: <p id="preco">R$25,00</p></div>
+    </div>
+    <div class="ingresso">
+        <div class="info">Sala 1</div>
+        <div class="info">Mussun o filmis</div>
+        <div class="info">Sessão: 1</div>
+        <div class="info">Cadeira: 13</div>
+        <div class="info">
+            Tipo do ingresso:
+            <select name="tipo-ingresso" id="ingresso" onchange="setpreco('preco')">
+                <option value="inteira" selected>Inteira</option>
+                <option value="meia">Meia</option>
+                <option value="vip">Vip</option>
+            </select>
+        </div>
+        <div class="info">Preço: <p id="preco">R$25,00</p></div>
+    </div>
+    <!-- aqui fecha o for -->
+</div>
+
+<div class="bomboniere">
+    <div class="title">BOMBONIERE</div>
+    <div class="bomboniereContent">
+        <div class="comida">
+            <div class="comidacontent" onclick="click('p1')">
+                <img src="{% static 'img/pipoca.png' %}" alt="">
+                <p>Pipoca pequena</p>
+                <p>R$15,00</p>
+                <input type="text" value="0" min="0" id="p1" readonly>
+                <div class="botoes">
+                    <input type="button" value="-" onclick="menos('p1')" class="menos">
+                    <input type="button" value="+" onclick="mais('p1')" class="mais">
+                </div>
+            </div>
+            <div class="comidacontent">
+                <img src="{% static 'img/pipoca.png' %}" alt="">
+                <p>Pipoca media</p>
+                <p>R$25,00</p>
+                <input type="text" value="0" min="0" id="p2" readonly>
+                <div class="botoes">
+                    <input type="button" value="-" onclick="menos('p2')" class="menos">
+                    <input type="button" value="+" onclick="mais('p2')" class="mais">
+                </div>
+            </div>
+            <div class="comidacontent">
+                <img src="{% static 'img/pipoca.png' %}" alt="">
+                <p>Pipoca grande</p>
+                <p>R$35,00</p>
+                <input type="text" value="0" min="0" id="p3" readonly>
+                <div class="botoes">
+                    <input type="button" value="-" onclick="menos('p3')" class="menos">
+                    <input type="button" value="+" onclick="mais('p3')" class="mais">
+                </div>
+            </div>
+        </div>
+        <div class="comida">
+            <div class="comidacontent">
+                <img src="{% static 'img/refrigerantes.png' %}" alt="">
+                <p>Refrigerante pequeno</p>
+                <p>R$8,00</p>
+                <input type="text" value="0" min="0" id="r1" readonly>
+                <div class="botoes">
+                    <input type="button" value="-" onclick="menos('r1')" class="menos">
+                    <input type="button" value="+" onclick="mais('r1')" class="mais">
+                </div>
+            </div>
+            <div class="comidacontent">
+                <img src="{% static 'img/refrigerantes.png' %}" alt="">
+                <p>Refrigerante medio</p>
+                <p>R$12,00</p>
+                <input type="text" value="0" min="0" id="r2" readonly>
+                <div class="botoes">
+                    <input type="button" value="-" onclick="menos('r2')" class="menos">
+                    <input type="button" value="+" onclick="mais('r2')" class="mais">
+                </div>
+            </div>
+            <div class="comidacontent">
+                <img src="{% static 'img/refrigerantes.png' %}" alt="">
+                <p>Refrigerante grande</p>
+                <p>R$16,00</p>
+                <input type="text" value="0" min="0" id="r3" readonly>
+                <div class="botoes">
+                    <input type="button" value="-" onclick="menos('r3')" class="menos"> 
+                    <input type="button" value="+" onclick="mais('r3')" class="mais">
+                </div>
+            </div>
+        </div>
+        <div class="comida">
+            <div class="comidacontent">
+                <img src="{% static 'img/chocolate.png' %}" alt="">
+                <p>Chocolate marca 1</p>
+                <p>R$6,00</p>
+                <input type="text" value="0" min="0" id="c1" readonly>
+                <div class="botoes">
+                    <input type="button" value="-" onclick="menos('c1')" class="menos">
+                    <input type="button" value="+" onclick="mais('c1')" class="mais">
+                </div>
+            </div>
+            <div class="comidacontent">
+                <img src="{% static 'img/chocolate.png' %}" alt="">
+                <p>Chocolate marca 2</p>
+                <p>R$6,50</p>
+                <input type="text" value="0" min="0" id="c2" readonly>
+                <div class="botoes">
+                    <input type="button" value="-" onclick="menos('c2')" class="menos">
+                    <input type="button" value="+" onclick="mais('c2')" class="mais">
+                </div>
+            </div>
+            <div class="comidacontent">
+                <img src="{% static 'img/chocolate.png' %}" alt="">
+                <p>Chocolate marca 3</p>
+                <p>R$7,50</p>
+                <input type="text" value="0" min="0" id="c3" readonly>
+                <div class="botoes">
+                    <input type="button" value="-" onclick="menos('c3')" class="menos">
+                    <input type="button" value="+" onclick="mais('c3')" class="mais">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="compra">
+    <input type="button" value="COMPRAR">
+    <div class="preco">
+        Preço total: <p id="precototal">R$00,00</p>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    
+    function menos(i) {
+        let x = document.getElementById(i).value
+        if (parseInt(x) <= 0) {
+            exit
+        }
+        document.getElementById(i).value= parseInt(x)-1
+    }
+
+    function mais(i) {
+        let x = document.getElementById(i).value
+        document.getElementById(i).value= parseInt(x)+1
+    }
+    function setpreco(i) {
+        console.log("aaaa")
+    }
+</script>
+{% endblock %}

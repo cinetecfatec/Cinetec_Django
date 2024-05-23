@@ -39,12 +39,13 @@ main {
 
 .form-group input{
     color: white;
-    width: 20em;
-    padding: 5px 5px 5px 5px;
+    width: 25em;
+    padding: 10px 10px 10px 10px;
     border: 1px solid black;
     border-bottom: 2px solid black;
     border-radius: 10px;
     background-color: #440000;
+    font-size: 16px;
 }
 
 .form-group label{
@@ -60,6 +61,7 @@ main {
     background-color: #e7d95d;
     border: 2px solid black;
     transition: .5s;
+    font-size: 20px;
 }
 
 .jumbotron button:hover{
