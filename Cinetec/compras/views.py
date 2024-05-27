@@ -53,7 +53,7 @@ class DataEscolhidaView(TemplateView):
     
     
 class IngressoEscolhidoView(TemplateView):
-    template_name = "ingressoEscolhido.html"
+    template_name = "checkout.html"
     
     def post(self,request,*args, **kwargs):
             meu_dado = request.POST.get
