@@ -159,15 +159,16 @@
     
     function menos(i, x) {
         let z = document.getElementById(i).value
+
         
-        if (document.getElementById(i).onchange) {
-            preco(i, x)
-        }
 
         if (parseInt(z) <= 0) {
             return
         }
 
+        if (document.getElementById(i).onchange) {
+            preco(i, x)
+        }
         document.getElementById(i).value= parseInt(z)-1
 
         
@@ -189,7 +190,7 @@
     var y = 0
     
     function preco(i, x) {
-        y += parseInt(x) * document.getElementById(i).value
+        y += parseInt(x)
         document.getElementById('precototal').innerText = 'R$' + y + ",00"           
     }
 
