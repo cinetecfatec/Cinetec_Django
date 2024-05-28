@@ -8,8 +8,9 @@ from django.urls import reverse
 from .forms import MeuForm
 from django.http import HttpResponse
 import ast
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 import json
-
 
 class IngressoTemplateview(TemplateView):
     template_name = "pagina-compras"
@@ -53,11 +54,15 @@ class DataEscolhidaView(TemplateView):
     
     
 class IngressoEscolhidoView(TemplateView):
-    template_name = "ingressoEscolhido.html"
+    template_name = "IngressoEscolhido.html"
     
-    def post(self,request,*args, **kwargs):
-            meu_dado = request.POST.get
-            return super().get(request,*args, **kwargs)
+    def ingresso_escolhido(request):
+        if request.method == 'POST':
+            data = json.loads(request.body)
+            # Processar os dados recebidos
+            print(data)
+            return JsonResponse({'status': 'success', 'data': data})
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
 
 class CompraListView(ListView):
     template_name = "Compra.html"
@@ -91,9 +96,9 @@ class CheckoutListview(ListView):
     def get_queryset(self):
         pk = self.kwargs.get('assentos_check')
         sessoes = Sessoes.objects.all()
-        sessao = Sessoes.objects.filter(Id_sessao = pk)
         filmes = listaFilmes.objects.all()
         sessao_assentos = Sessoes.objects.get(Id_sessao=pk)
         assentos = sessao_assentos.assentos  # Fetch the 'assentos' field value
+        sessao = sessao_assentos.Id_sessao
 
         return {'filmes': filmes, 'sessoes': sessoes, 'pk': pk, 'sessao':sessao, 'assentos': assentos }

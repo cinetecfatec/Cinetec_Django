@@ -46,7 +46,9 @@
 {% block scripts %}
 <script>
     var assentos = "{{ dados.assentos }}";
+    var sessao  ="{{ dados.pk }}";
     console.log(assentos);
+    console.log(sessao);
 </script>
 <script src="{% static 'js/assentos.js'%}"></script>
 

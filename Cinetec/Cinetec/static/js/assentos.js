@@ -1,9 +1,12 @@
 
 $(document).ready(function() {
-    console.log("documento", document.getElementById("bt_compra"))
+    let csrftoken = getCookie('csrftoken');
     let assentos_banco = Assentos(assentos);
+    let sessao_id = Sessao(sessao);
     console.log("assentos_banco = ");
     console.log(assentos_banco);
+    console.log("Sessão = ");
+    console.log(sessao_id);
     let livre = "/static/img/assento_disp.png";
     let selecionado = "/static/img/assento_selecionado.png";
     let ocupado = "/static/img/assento_ocup.png";
@@ -51,20 +54,37 @@ $(document).ready(function() {
 
     document.getElementById("bt_compra").addEventListener('click', function(compra_) {
         let caminho = window.location.origin
-
-    fetch(caminho +"/compras/ingresso_escolhido",
-{
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify(todasCadera)
-})
-.then(window.location.href = caminho +"/compras/ingresso_escolhido")
+        const endpoint = caminho +"/compras/ingresso_escolhido";
 
 
+        let cadeirasSelecionadas = {
+            id: 1,
+            status:"livre"
+        }
+        
+        if (!csrftoken) {
+            console.error('CSRF token not found. Check if CSRF middleware is enabled or if the token is being set correctly.');
+            return;
+        }
+
+
+        $.ajax({
+            method: "POST",
+            headers: {'X-CSRFToken': csrftoken}, // Inclui o token CSRF como cabeçalho
+            url: endpoint,
+            data: JSON.stringify(cadeirasSelecionadas),
+            contentType: "application/json",
+            success: function(resposta) {
+                console.log(resposta);
+                // Redirect to the next page after successful AJAX response
+                window.location.href = `${caminho}/checkout/${sessao_id}`;
+            },
+            error: function(error) {
+                console.error("Error during AJAX request:", error);
+            }
+        });
     });
+
 
     function existeSalvo(existe, index) {
         if(!existe) return livre;
@@ -105,4 +125,22 @@ function Assentos(assentos){
     return(assentos)
 }
 
+function Sessao (sessao){
+    return sessao
+}
 
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Verifica se o cookie possui o nome desejado
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
