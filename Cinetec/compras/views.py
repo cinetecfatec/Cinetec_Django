@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 from filmes.models import listaFilmes
-from .models import Sessoes
+from .models import Sessoes,Tabela_preco
 from datetime import date,datetime
 from django.shortcuts import redirect
 from django.urls import reverse
@@ -107,14 +107,28 @@ class CheckoutListview(ListView):
         return context
     
     def get_queryset(self):
-        pk = self.request.COOKIES.get('sessao_id')
-        print(f"pk = {pk}")
+        pk = int( self.request.COOKIES.get('sessao_id'))
         sessoes = Sessoes.objects.all()
-        filmes = listaFilmes.objects.all()
-        sessao_assentos = Sessoes.objects.get(Id_sessao=pk)
-        assentos = sessao_assentos.assentos  # Fetch the 'assentos' field value
-        sessao = sessao_assentos.Id_sessao
+        sessao = Sessoes.objects.filter(Id_sessao = pk).values('Id_sessao', 'Id_filme_id','sala','assentos')
+        sessao_atual = sessao[0]
+        filme_atual = sessao_atual['Id_filme_id']
+        assentos_banco = sessao_atual['assentos']
+        filmes = listaFilmes.objects.filter(id_filme = filme_atual).values('nome_filme')
+        filme_escolhido = filmes[0]
+        sala = sessao_atual['sala']
+        filme = filme_escolhido['nome_filme']
+        
+        
+        # assentos = sessao.assentos  # Fetch the 'assentos' field value
         assentos_escolhidos =  json.loads(self.request.COOKIES.get('cadeiras_numeros', '[]')) 
-        print(f"assentos escolhido = {assentos_escolhidos}")
+        
+        preco = Tabela_preco.objects.all()
+        ingressos = Tabela_preco.objects.filter(tipo = 'ingresso').values('descricao','preco')
+        inteira = ingressos[0]
+        inteira = inteira['preco']
+        meia = ingressos[1]
+        meia = meia['preco']
+        vip = ingressos[2]
+        vip = vip['preco']
 
-        return {'filmes': filmes, 'sessoes': sessoes, 'pk': pk, 'sessao':sessao, 'assentos': assentos }
+        return {'inteira': inteira, 'meia': meia, 'vip': vip, 'preco': preco, 'filmes': filmes, 'sala': sala, 'filme': filme, 'sessoes': sessoes, 'pk': pk, 'assentos_escolhidos': assentos_escolhidos, 'sessao':sessao }

@@ -3,6 +3,7 @@ $(document).ready(function() {
     let csrftoken = getCookie('csrftoken');
     let assentos_banco = Assentos(assentos);
     let sessao_id = Sessao(sessao);
+
     console.log("assentos_banco = ");
     console.log(assentos_banco);
     console.log("Sessão = ");

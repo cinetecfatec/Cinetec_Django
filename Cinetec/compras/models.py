@@ -19,4 +19,9 @@ class Sessoes(models.Model):
       ordering = ['-Id_filme']
     
 
-
+class Tabela_preco(models.Model):
+  id_produto = models.CharField(primary_key=True, max_length=4)
+  tipo = models.CharField( max_length= 20)
+  descricao = models.CharField(verbose_name="Descrição", max_length= 50)
+  preco = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Preço")
+  

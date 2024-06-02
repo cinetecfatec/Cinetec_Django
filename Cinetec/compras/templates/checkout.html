@@ -7,140 +7,78 @@
 {% endblock %}
 
 {% block conteudo %}
-
 <div class="ingressos">
-    <!-- aqui vai um for pra renderiza todos os ingressos -->
+{% for assento in dados.assentos_escolhidos %}
+    {% for filme in dados.filmes %}
     <div class="ingresso">
-        <div class="info">Sala 1</div>
-        <div class="info">Mussun o filmis</div>
-        <div class="info">Sessão: 1</div>
-        <div class="info">Cadeira: 13</div>
+        <div class="info">Sala {{ filme.sala }}</div>
+        <div class="info">{{ filme.nome }}</div>
+        <div class="info">Sessão: {{ filme.pk }}</div>
+        <div class="info">Cadeira: {{ assento }}</div>
         <div class="info">
             Tipo do ingresso:
-            <select name="tipo-ingresso" id="ingresso" onchange="setpreco('preco')">
-                <option value="inteira" selected>Inteira</option>
-                <option value="meia">Meia</option>
-                <option value="vip">Vip</option>
+            <select name="tipo-ingresso" id="ingresso-{{ assento }}" onchange="atualizarPrecoIngresso('{{ assento }}', {{ filme.pk }})">
+                <option value="inteira" data-preco="{{dados.inteira}}" selected>Inteira</option>
+                <option value="meia" data-preco="{{dados.meia}}">Meia</option>
+                <option value="vip" data-preco="{{dados.vip}}">Vip</option>
             </select>
         </div>
-        <div class="info">Preço: <p id="preco">R$25,00</p></div>
+        <div class="info">Preço: <p id="preco-{{ assento }}">R$25,00</p></div>
     </div>
-    <div class="ingresso">
-        <div class="info">Sala 1</div>
-        <div class="info">Mussun o filmis</div>
-        <div class="info">Sessão: 1</div>
-        <div class="info">Cadeira: 13</div>
-        <div class="info">
-            Tipo do ingresso:
-            <select name="tipo-ingresso" id="ingresso" onchange="setpreco('preco')">
-                <option value="inteira" selected>Inteira</option>
-                <option value="meia">Meia</option>
-                <option value="vip">Vip</option>
-            </select>
-        </div>
-        <div class="info">Preço: <p id="preco">R$25,00</p></div>
-    </div>
-    <!-- aqui fecha o for -->
-</div>
+    {% endfor %}
+{% endfor %}
 
 <div class="bomboniere">
     <div class="title">BOMBONIERE</div>
     <div class="bomboniereContent">
         <div class="comida">
-            <div class="comidacontent" onclick="click('p1')">
+            {% for x in dados.preco %}
+                {% if x.tipo == 'pipoca' %}
+            <div class="comidacontent" onclick="click('{{x.id_produto}}')">
                 <img src="{% static 'img/pipoca.png' %}" alt="">
-                <p>Pipoca pequena</p>
-                <p>R$15,00</p>
-                <input type="text" value="0" min="0" onchange="preco('p1')" id="p1" readonly>
+                <p>{{x.descricao}}</p>
+                <p>R${{x.preco}}</p>
+                <input type="text" value="0" min="0" onchange="preco('{{x.id_produto}}')" id="{{x.id_produto}}" readonly>
                 <div class="botoes">
-                    <input type="button" value="-" onclick="menos('p1', -15)" class="menos">
-                    <input type="button" value="+" onclick="mais('p1', 15)" class="mais">
+                    <input type="button" value="-" onclick="menos('{{x.id_produto}}', -{{x.preco}})" class="menos">
+                    <input type="button" value="+" onclick="mais('{{x.id_produto}}', {{x.preco}})" class="mais">
                 </div>
             </div>
-            <div class="comidacontent">
-                <img src="{% static 'img/pipoca.png' %}" alt="">
-                <p>Pipoca media</p>
-                <p>R$25,00</p>
-                <input type="text" value="0" min="0" onchange="preco('p2')" id="p2" readonly>
-                <div class="botoes">
-                    <input type="button" value="-" onclick="menos('p2', -25)" class="menos">
-                    <input type="button" value="+" onclick="mais('p2', 25)" class="mais">
-                </div>
-            </div>
-            <div class="comidacontent">
-                <img src="{% static 'img/pipoca.png' %}" alt="">
-                <p>Pipoca grande</p>
-                <p>R$35,00</p>
-                <input type="text" value="0" min="0" onchange="preco('p3')" id="p3" readonly>
-                <div class="botoes">
-                    <input type="button" value="-" onclick="menos('p3', -35)" class="menos">
-                    <input type="button" value="+" onclick="mais('p3', 35)" class="mais">
-                </div>
-            </div>
+                {% endif %}
+            {% endfor %}
         </div>
         <div class="comida">
+            {% for x in dados.preco %}
+                {% if x.tipo == 'refrigerante' %}
             <div class="comidacontent">
                 <img src="{% static 'img/refrigerantes.png' %}" alt="">
-                <p>Refrigerante pequeno</p>
-                <p>R$8,00</p>
-                <input type="text" value="0" min="0" onchange="preco('r1')" id="r1" readonly>
+                <p>{{x.descricao}}</p>
+                <p>R${{x.preco}}</p>
+                <input type="text" value="0" min="0" onchange="preco('{{x.id_produto}}')" id="{{x.id_produto}}" readonly>
                 <div class="botoes">
-                    <input type="button" value="-" onclick="menos('r1', -8)" class="menos">
-                    <input type="button" value="+" onclick="mais('r1', 8)" class="mais">
+                    <input type="button" value="-" onclick="menos('{{x.id_produto}}', -{{x.preco}})" class="menos">
+                    <input type="button" value="+" onclick="mais('{{x.id_produto}}', {{x.preco}})" class="mais">
                 </div>
             </div>
-            <div class="comidacontent">
-                <img src="{% static 'img/refrigerantes.png' %}" alt="">
-                <p>Refrigerante medio</p>
-                <p>R$12,00</p>
-                <input type="text" value="0" min="0" onchange="preco('r2')" id="r2" readonly>
-                <div class="botoes">
-                    <input type="button" value="-" onclick="menos('r2', -12)" class="menos">
-                    <input type="button" value="+" onclick="mais('r2', 12)" class="mais">
-                </div>
-            </div>
-            <div class="comidacontent">
-                <img src="{% static 'img/refrigerantes.png' %}" alt="">
-                <p>Refrigerante grande</p>
-                <p>R$16,00</p>
-                <input type="text" value="0" min="0" onchange="preco('r3')" id="r3" readonly>
-                <div class="botoes">
-                    <input type="button" value="-" onclick="menos('r3', -16)" class="menos"> 
-                    <input type="button" value="+" onclick="mais('r3', 16)" class="mais">
-                </div>
-            </div>
+                {% endif %}
+            {% endfor %}
         </div>
         <div class="comida">
+            {% for x in dados.preco %}
+                {% if x.tipo == 'chocolate' %}
             <div class="comidacontent">
                 <img src="{% static 'img/chocolate.png' %}" alt="">
-                <p>Chocolate marca 1</p>
-                <p>R$6,00</p>
-                <input type="text" value="0" min="0" onchange="preco('c1')" id="c1" readonly>
+                <p>{{x.descricao}}</p>
+                <p>R${{x.preco}}</p>
+                <input type="text" value="0" min="0" onchange="preco('{{x.id_produto}}')" id="{{x.id_produto}}" readonly>
                 <div class="botoes">
-                    <input type="button" value="-" onclick="menos('c1', -6)" class="menos">
-                    <input type="button" value="+" onclick="mais('c1', 6)" class="mais">
+                    <input type="button" value="-" onclick="menos('{{x.id_produto}}', -{{x.preco}})" class="menos">
+                    <input type="button" value="+" onclick="mais('{{x.id_produto}}', {{x.preco}})" class="mais">
                 </div>
             </div>
-            <div class="comidacontent">
-                <img src="{% static 'img/chocolate.png' %}" alt="">
-                <p>Chocolate marca 2</p>
-                <p>R$7,00</p>
-                <input type="text" value="0" min="0" onchange="preco('c2')" id="c2" readonly>
-                <div class="botoes">
-                    <input type="button" value="-" onclick="menos('c2', -7)" class="menos">
-                    <input type="button" value="+" onclick="mais('c2', 7)" class="mais">
-                </div>
-            </div>
-            <div class="comidacontent">
-                <img src="{% static 'img/chocolate.png' %}" alt="">
-                <p>Chocolate marca 3</p>
-                <p>R$9,00</p>
-                <input type="text" value="0" min="0" onchange="preco('c3')" id="c3" readonly>
-                <div class="botoes">
-                    <input type="button" value="-" onclick="menos('c3', -9)" class="menos">
-                    <input type="button" value="+" onclick="mais('c3', 9)" class="mais">
-                </div>
-            </div>
+                {% endif %}
+            {% endfor %}
+
         </div>
     </div>
 </div>
@@ -156,43 +94,77 @@
 
 {% block scripts %}
 <script>
-    
+    var y = 0;
+
     function menos(i, x) {
-        let z = document.getElementById(i).value
-
-        
-
+        let z = document.getElementById(i).value;
         if (parseInt(z) <= 0) {
-            return
+            return;
         }
-
-        if (document.getElementById(i).onchange) {
-            preco(i, x)
-        }
-        document.getElementById(i).value= parseInt(z)-1
-
-        
+        document.getElementById(i).value = parseInt(z) - 1;
+        atualizarPrecoTotal(x);
     }
 
     function mais(i, x) {
-        let z = document.getElementById(i).value
-        document.getElementById(i).value= parseInt(z)+1
-        
-        if (document.getElementById(i).onchange) {
-            preco(i, x)
-        }
+        let z = document.getElementById(i).value;
+        document.getElementById(i).value = parseInt(z) + 1;
+        atualizarPrecoTotal(x);
     }
 
-    function setpreco(i) {
-        console.log("aaaa")
+    function atualizarPrecoTotal(x) {
+        y += parseFloat(x);
+        document.getElementById('precototal').innerText = 'R$' + y.toFixed(2);
     }
 
-    var y = 0
-    
+    function atualizarPrecoIngresso(assento, sessao) {
+        const select = document.getElementById('ingresso-' + assento);
+        const preco = select.options[select.selectedIndex].getAttribute('data-preco');
+        document.getElementById('preco-' + assento).innerText = 'R$' + parseFloat(preco).toFixed(2);
+
+        recalcularPrecoTotal();
+    }
+
     function preco(i, x) {
-        y += parseInt(x)
-        document.getElementById('precototal').innerText = 'R$' + y + ",00"           
+        y += parseFloat(x);
+        document.getElementById('precototal').innerText = 'R$' + y.toFixed(2);
     }
 
+    function inicializarPrecoTotal() {
+        let totalIngresso = 0;
+        document.querySelectorAll("select[name='tipo-ingresso']").forEach((element) => {
+            const precoInicial = element.options[element.selectedIndex].getAttribute('data-preco');
+            totalIngresso += parseFloat(precoInicial);
+        });
+
+        let totalBomboniere = 0;
+        document.querySelectorAll("input[type='text']").forEach((element) => {
+            const valor = parseInt(element.value) || 0;
+            const precoProduto = parseFloat(element.closest('.comidacontent').querySelector('p:nth-child(3)').innerText.replace('R$', '').replace(',', '.'));
+            totalBomboniere += valor * precoProduto;
+        });
+
+        y = totalIngresso + totalBomboniere;
+        document.getElementById('precototal').innerText = 'R$' + y.toFixed(2);
+    }
+
+    function recalcularPrecoTotal() {
+        let totalIngresso = 0;
+        document.querySelectorAll("select[name='tipo-ingresso']").forEach((element) => {
+            const precoSelecionado = element.options[element.selectedIndex].getAttribute('data-preco');
+            totalIngresso += parseFloat(precoSelecionado);
+        });
+
+        let totalBomboniere = 0;
+        document.querySelectorAll("input[type='text']").forEach((element) => {
+            const valor = parseInt(element.value) || 0;
+            const precoProduto = parseFloat(element.closest('.comidacontent').querySelector('p:nth-child(3)').innerText.replace('R$', '').replace(',', '.'));
+            totalBomboniere += valor * precoProduto;
+        });
+
+        y = totalIngresso + totalBomboniere;
+        document.getElementById('precototal').innerText = 'R$' + y.toFixed(2);
+    }
+
+    document.addEventListener("DOMContentLoaded", inicializarPrecoTotal);
 </script>
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sessoes
+from .models import Sessoes,Tabela_preco
 from filmes.models import listaFilmes
 from django.contrib.admin.widgets import ForeignKeyRawIdWidget
 
@@ -21,3 +21,7 @@ class SessoesAdmin(admin.ModelAdmin):
 
 admin.site.register(Sessoes,SessoesAdmin)
 
+class Tabela_precoAdmin(admin.ModelAdmin):
+    list_display = ('id_produto','descricao','preco')
+
+admin.site.register(Tabela_preco,Tabela_precoAdmin)
