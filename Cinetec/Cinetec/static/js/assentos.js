@@ -54,30 +54,36 @@ $(document).ready(function() {
 
     document.getElementById("bt_compra").addEventListener('click', function(compra_) {
         let caminho = window.location.origin
-        const endpoint = caminho +"/compras/ingresso_escolhido";
+        const endpoint = caminho +"/compras/ingresso_escolhido/";
+        let valor = localStorage.getItem('cadeiras');
+        let cadeirasArray = JSON.parse(valor);
 
-
-        let cadeirasSelecionadas = {
-            id: 1,
-            status:"livre"
+        let cadeirasSelecionadas  = {
+            "sessao" : sessao_id,
+            "cadeiras_selecionadas": [] // Inicializa como array para armazenar múltiplos IDs
         }
+        for (let item of cadeirasArray) {
+                if (item.status == 'selecionado'){
+                    cadeirasSelecionadas["cadeiras_selecionadas"].push(item.id);
+                }
+            }
         
         if (!csrftoken) {
             console.error('CSRF token not found. Check if CSRF middleware is enabled or if the token is being set correctly.');
             return;
         }
-
-
         $.ajax({
             method: "POST",
             headers: {'X-CSRFToken': csrftoken}, // Inclui o token CSRF como cabeçalho
             url: endpoint,
             data: JSON.stringify(cadeirasSelecionadas),
             contentType: "application/json",
+            
             success: function(resposta) {
                 console.log(resposta);
                 // Redirect to the next page after successful AJAX response
-                window.location.href = `${caminho}/checkout/${sessao_id}`;
+                //window.location.href = `${caminho}/compras/checkout/${teste_envio}`;
+                window.location.href = `${caminho}/compras/checkout/`;
             },
             error: function(error) {
                 console.error("Error during AJAX request:", error);

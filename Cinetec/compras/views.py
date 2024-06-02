@@ -6,14 +6,12 @@ from datetime import date,datetime
 from django.shortcuts import redirect
 from django.urls import reverse
 from .forms import MeuForm
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect,HttpResponsePermanentRedirect
 import ast
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-import json
+import json,re
 
-class IngressoTemplateview(TemplateView):
-    template_name = "pagina-compras"
 
 class ProgramacaoListView(ListView):
     template_name = "programacao.html"
@@ -51,18 +49,6 @@ class DataEscolhidaView(TemplateView):
             print('No data found in cookie.')
         # Continue with the normal dispatch process
         return redirect('pagina-programacao',{'data_esc':data_from_cookie})
-    
-    
-class IngressoEscolhidoView(TemplateView):
-    template_name = "IngressoEscolhido.html"
-    
-    def ingresso_escolhido(request):
-        if request.method == 'POST':
-            data = json.loads(request.body)
-            # Processar os dados recebidos
-            print(data)
-            return JsonResponse({'status': 'success', 'data': data})
-        return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
 
 class CompraListView(ListView):
     template_name = "Compra.html"
@@ -79,26 +65,56 @@ class CompraListView(ListView):
         sessao = Sessoes.objects.filter(Id_sessao = pk)
         filmes = listaFilmes.objects.all()
         sessao_assentos = Sessoes.objects.get(Id_sessao=pk)
-        # assentos = sessao_assentos.assentos  # Fetch the 'assentos' field value
-        assentos = 'e' * 50 + 'o' * 78
+        assentos = sessao_assentos.assentos  # Fetch the 'assentos' field value
+        #assentos = 'e' * 50 + 'o' * 78
 
         return {'filmes': filmes, 'sessoes': sessoes, 'pk': pk, 'sessao':sessao, 'assentos': assentos }
-    
+
+class IngressoEscolhidoView(TemplateView):
+    template_name = "IngressoEscolhido.html"
+
+    def post(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            data = json.loads(request.body)
+            # Processar os dados recebidos
+            print(data)
+            # Acessando dados específicos
+            sessao_id = data.get('sessao')
+            cadeiras_selecionadas = data.get('cadeiras_selecionadas', [])
+
+            # Extrair os números das strings e converter para inteiros
+            cadeiras_numeros = [int(re.search(r'\d+', cadeira).group()) for cadeira in cadeiras_selecionadas]
+            
+            print("Sessão ID:", sessao_id)
+            print("Cadeiras Selecionadas:", cadeiras_selecionadas)
+            print("Cadeiras Números:", cadeiras_numeros)
+                # Cria uma resposta HTTP
+            response = HttpResponse('pagina-checkout')
+            # Define cookies na resposta
+            response.set_cookie('sessao_id', sessao_id, httponly=True, secure=True)
+            response.set_cookie('cadeiras_numeros', json.dumps(cadeiras_numeros), httponly=True, secure=True)
+
+            return response
+
 class CheckoutListview(ListView):
     template_name = "checkout.html"
     context_object_name = 'dados'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['assentos_check'] = self.kwargs.get('assentos_check')
+        context['sessao_id'] = self.request.COOKIES.get('sessao_id')
+        context['cadeiras_numeros'] = json.loads(self.request.COOKIES.get('cadeiras_numeros', '[]'))  # Convertendo de volta para lista
         return context
-
+    
     def get_queryset(self):
-        pk = self.kwargs.get('assentos_check')
+        pk = self.request.COOKIES.get('sessao_id')
+        print(f"pk = {pk}")
         sessoes = Sessoes.objects.all()
         filmes = listaFilmes.objects.all()
         sessao_assentos = Sessoes.objects.get(Id_sessao=pk)
         assentos = sessao_assentos.assentos  # Fetch the 'assentos' field value
         sessao = sessao_assentos.Id_sessao
+        assentos_escolhidos =  json.loads(self.request.COOKIES.get('cadeiras_numeros', '[]')) 
+        print(f"assentos escolhido = {assentos_escolhidos}")
 
         return {'filmes': filmes, 'sessoes': sessoes, 'pk': pk, 'sessao':sessao, 'assentos': assentos }
