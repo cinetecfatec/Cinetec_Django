@@ -7,29 +7,29 @@
 {% endblock %}
 
 {% block conteudo %}
-<form method="post" action="{% url 'finalizar_compra' %}">
+<form method="post" action="{% url 'finalizar_compra' %}    ">
 {% csrf_token %}
 <div class="ingressos">
     {% for assento in dados.assentos_escolhidos %}
-                <div class="ingresso">
-                    <div class="info">Sala {{ dados.sala }}</div>
-                    <div class="info">{{ dados.filme }}</div>
-                    <div class="info">Sessão: {{ dados.pk }}</div>
-                    <div class="info">Cadeira: {{ assento }}</div>
-                    <div class="info">
-                        Tipo do ingresso:
-                        <select name="tipo_ingresso_{{ assento }}" id="ingresso-{{ assento }}" onchange="atualizarPrecoIngresso('{{ assento }}', {{ filme.pk }})">
-                            <option value="inteira" data-preco="{{ dados.inteira }}" selected>Inteira</option>
-                            <option value="meia" data-preco="{{ dados.meia }}">Meia</option>
-                            <option value="vip" data-preco="{{ dados.vip }}">Vip</option>
-                        </select>
-                    </div>
-                    <div class="info">Preço: <p id="preco-{{ assento }}">R${{ dados.inteira }}</p></div>
-                </div>
+        <div class="ingresso">
+            <div class="info">Sala {{ dados.sala }}</div>
+            <div class="info">{{ dados.filme }}</div>
+            <div class="info">Sessão: {{ dados.pk }}</div>
+            <div class="info">Cadeira: {{ assento }}</div>
+            <div class="info">
+                Tipo do ingresso:
+                <select name="tipo_ingresso_{{ assento }}" id="ingresso-{{ assento }}" onchange="atualizarPrecoIngresso('{{ assento }}', {{ filme.pk }})">
+                    <option value="inteira" data-preco="{{ dados.inteira }}" selected>Inteira</option>
+                    <option value="meia" data-preco="{{ dados.meia }}">Meia</option>
+                    <option value="vip" data-preco="{{ dados.vip }}">Vip</option>
+                </select>
             </div>
-            <br>
-            {% endfor %}
-<br>
+            <div class="info">Preço: <p id="preco-{{ assento }}">R${{ dados.inteira }}</p></div>
+        </div>
+    {% endfor %}
+</div>
+            
+
     <div class="bomboniere">
         <div class="title">BOMBONIERE</div>
         <div class="bomboniereContent">
@@ -86,7 +86,7 @@
         </div>
     </div>
 
-<br>
+
     <div class="compra">
             <!-- Input hidden para enviar o Id_sessao -->
     <input type="hidden" name="sessao_id" value="{{ dados.pk }}">
