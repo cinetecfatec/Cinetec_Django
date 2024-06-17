@@ -1,16 +1,18 @@
+/* Estilos gerais para o elemento principal */
 main {
-	align-items: center;
-	justify-content: flex-start;
-	gap: 5em;
-	padding: 3em 0;
-	width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5em;
+    padding: 3em 0;
+    width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     color: #F0E68C;
     margin-top: 6rem;
     flex-direction: column;
 }
 
-.ingressos{
+/* Estilos para a seção de ingressos */
+.ingressos {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -19,32 +21,33 @@ main {
     font-size: 1.3em;
 }
 
-.info{
+.info {
     display: flex;
     gap: 5px;
 }
 
-.ingresso{
+.ingresso {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     background-color: #440000;
     border: 2px black solid;
     border-radius: 10px;
-    
 }
 
-select{
-	border: 2px black solid;
-	background-color: #440000;
-	color: #F0E68C;
-	padding: 3px 6px 3px 3px;
-	border-radius: 5px;
+/* Estilos para os elementos select */
+select {
+    border: 2px black solid;
+    background-color: #440000;
+    color: #F0E68C;
+    padding: 3px 6px;
+    border-radius: 5px;
 }
 
-.bomboniere{
+/* Estilos para a seção de bomboniere */
+.bomboniere {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,7 +57,7 @@ select{
     border-radius: 15px;
 }
 
-.title{
+.title {
     font-size: 2em;
     background-color: black;
     border-top-right-radius: 11px;
@@ -62,46 +65,44 @@ select{
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: .5em 0 .5em 0;
+    padding: .5em 0;
 }
 
-.bomboniereContent{
+.bomboniereContent {
     display: flex;
-    padding: 2em 0em 2em 0em;
+    padding: 2em 0;
     width: 100%;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     gap: 2em;
-
 }
 
-.comida{
+.comida {
     width: 90%;
     display: flex;
     justify-content: space-around;
-
 }
 
-.comida img{
+.comida img {
     width: 5em;
 }
 
-.comidacontent{
+/* Estilos para os itens da bomboniere */
+.comidacontent {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
     border: 2px black solid;
     border-radius: 10px;
-    padding: 5px 5px 5px 5px;
+    padding: 5px;
     min-width: 180px;
     max-width: 180px;
     justify-content: center;
-
 }
 
-.comidacontent input{
+.comidacontent input {
     background-color: black;
     border: 1px black solid;
     width: 1.5em;
@@ -111,55 +112,52 @@ select{
     text-align: center;
 }
 
-.botoes input{
+/* Estilos para os botões */
+.botoes input {
     cursor: pointer;
-    
-}
-
-.menos{
-    background-color: #f84031 !important;
-
-}
-
-.mais{
-    background-color: #30ce5f !important;
-}
-
-.botoes input{
     border: none;
-    width: 2em; 
+    width: 2em;
     color: black;
 }
 
-.compra{
+.menos {
+    background-color: #f84031 !important;
+}
+
+.mais {
+    background-color: #30ce5f !important;
+}
+
+/* Estilos para a seção de compra */
+.compra {
     width: 70%;
     background-color: #440000;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 2rem;
-    padding: .5em 0 .5em;
+    padding: .5em 0;
     border: 2px black solid;
     border-radius: 15px;
-
 }
 
-.compra input{
+.compra input {
     font-size: 2rem;
     background-color: #ebd72b;
     border: 2px black solid;
     cursor: pointer;
-    padding: 10px 15px 10px 15px;
+    padding: 10px 15px;
     border-radius: 15px;
     transition: .5s;
 }
 
-.compra input:hover{
+.compra input:hover {
     background-color: #ffe600;
     transition: .3s;
 }
 
-.preco{
+/* Estilos para a exibição do preço */
+.preco {
     display: flex;
     gap: 10px;
 }
