@@ -1,35 +1,40 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit
+from crispy_forms.layout import Submit
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-
-class NovoCadastro(forms.ModelForm):
-    
+class NovoCadastro(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1']
         widgets = {
-            'password': forms.PasswordInput(),
             'email': forms.EmailInput(attrs={'required': True}),
         }
         labels = {
-            'username': 'Nome de Usuário',  # Altera o rótulo do campo username
-            'email' : 'E-mail',
+            'username': 'Nome de Usuário',
+            'email': 'E-mail',
         }
         help_texts = {
-            'username': None,  # Removendo o texto de ajuda do campo password
+            'username': None,
+            'password1': None,
+
         }
-    
+
     def __init__(self, *args, **kwargs):
         super(NovoCadastro, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'POST'
         self.helper.form_class = 'cadastroForm'
-        self.helper.add_input(Submit('submit', 'Submit', css_class='btn btn-primary'))
+        self.helper.add_input(Submit('submit', 'Registrar', css_class='btn btn-primary'))
         self.helper.label_class = 'col-md-3 col-form-label'
 
+
 class LoginForm(AuthenticationForm):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'POST'
+        self.helper.form_class = 'loginForm'
+        self.helper.add_input(Submit('submit', 'Login', css_class='btn btn-primary'))
+        self.helper.label_class = 'col-md-3 col-form-label'
