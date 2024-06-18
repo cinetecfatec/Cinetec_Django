@@ -21,11 +21,11 @@ main{
     justify-content: center;
     align-items: center;
     gap: 1.5em;
-    height: 90vh;
     padding: 0;
     color: #F0E68C;
     font-family: Arial, Helvetica, sans-serif;
-    padding-top: 5em;
+    padding-top: 8em;
+    padding-bottom: 2em;
 }
 
 .jumbotron{
@@ -67,4 +67,8 @@ main{
 .jumbotron button:hover{
     background-color: #ecd715;
     transition: .5s;
+}
+
+#hint_id_password1 li:first-child{
+    display: none;
 }

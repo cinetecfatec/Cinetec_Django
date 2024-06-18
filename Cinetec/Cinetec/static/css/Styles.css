@@ -226,6 +226,10 @@ footer h2 {
 
 }
 
+.iconesRedesSociais a{
+	color: white;
+}
+
 .googlePlayIcone {
 	display: flex;
 	flex-direction: row;
